@@ -16,10 +16,10 @@ Visit the live product: [clearscan.fyi](https://clearscan.fyi)
 
 ## AI Features
 
-Both generative features are live in production. They are not placeholders. Anthropic Claude is used only here: the core score remains deterministic and does not call a model.
+Both generative features are live in production. They are not placeholders. They are powered by Anthropic: the core score remains deterministic and does not call a model.
 
-- **AI Cover Letter Generator** — Anthropic Claude produces a tailored cover letter from the résumé and the job posting. It is designed not to invent facts.
-- **AI Rewrite Suggestions** — Anthropic Claude suggests rewrite wording grounded in the scan results. It is designed not to invent facts.
+- **AI Cover Letter Generator** — Anthropic produces a tailored cover letter from the résumé and the job posting. It is designed not to invent facts.
+- **AI Rewrite Suggestions** — Anthropic suggests rewrite wording grounded in the scan results. It is designed not to invent facts.
 
 ## Scoring Engine
 

@@ -20,7 +20,7 @@ flowchart LR
     end
 
     Stripe["Stripe<br/>Payments"]
-    Claude["Anthropic Claude API<br/>Paid bullet rewrites<br/>Paid cover letters"]
+    Anthropic["Anthropic API<br/>Paid bullet rewrites<br/>Paid cover letters"]
     Resend["Resend"]
 
     User --> Web
@@ -28,7 +28,7 @@ flowchart LR
     Web --> Auth
     API --> DB
     API <--> Stripe
-    API --> Claude
+    API --> Anthropic
     API --> Resend
 ```
 
@@ -39,5 +39,5 @@ flowchart LR
 - PostgreSQL and authentication use Supabase, with the database in the Frankfurt region.
 - Row-level access control is enabled in Supabase/PostgreSQL.
 - Payments are handled by Stripe; no card data is stored.
-- Anthropic Claude API calls are limited to paid bullet rewrite suggestions and paid cover-letter generation.
+- Anthropic API calls are limited to paid bullet rewrite suggestions and paid cover-letter generation.
 - GitHub Actions runs the automated tests. Production deploys automatically from the main branch: the frontend on Netlify and the backend on Railway, built from a Dockerfile.
