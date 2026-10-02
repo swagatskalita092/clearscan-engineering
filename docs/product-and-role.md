@@ -12,7 +12,7 @@ The product provides a deterministic, rule-based core scoring engine to every fr
 
 Score components: Keywords, Skills, Bullet Quality, Sections, Formatting.
 
-The Anthropic Claude API is not used for the core score. It is limited to two gated premium capabilities:
+The Anthropic API is not used for the core score. It is limited to two gated premium capabilities:
 
 1. AI-assisted bullet rewrite suggestions
 2. AI-generated cover letters
@@ -29,11 +29,11 @@ A History page stores each result with its score, domain, level, and timestamp. 
 
 ### Free tier
 
-Every free user receives the deterministic score, verdict, top issues, a keyword preview, a section check and rule-based suggestions. There is no Claude call on the core score. Full keyword lists, skill analysis, the five-platform ATS details, bullet analysis and interview probability are paid, as are the two Claude-backed generation features.
+Every free user receives the deterministic score, verdict, top issues, a keyword preview, a section check and rule-based suggestions. There is no Anthropic API call on the core score. Full keyword lists, skill analysis, the five-platform ATS details, bullet analysis and interview probability are paid, as are the two Anthropic-powered generation features.
 
 ### Paid tier
 
-A paid subscription adds those full analysis details and the two Claude-backed features. These are the only places the Anthropic Claude API is used:
+A paid subscription adds those full analysis details and the two Anthropic-powered features. These are the only places the Anthropic API is used:
 
 1. Bullet rewrites. The user selects a résumé bullet, requests an AI rewrite, and receives a suggested improved version grounded in the scan results. It is designed not to invent facts.
 2. Cover letters. The user provides résumé text and job description text only. The user receives a tailored draft. It is designed not to invent facts.

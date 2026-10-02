@@ -22,9 +22,9 @@ sequenceDiagram
 
 The measured end-to-end parse time is under 6 seconds. The core scoring path is deterministic and does not call an LLM.
 
-## Premium Claude features
+## Premium Anthropic features
 
-Claude API calls occur only when a paid user invokes one of these gated features:
+Anthropic API calls occur only when a paid user invokes one of these gated features:
 
 1. AI-assisted bullet rewrite suggestions
 2. AI-generated cover letters
@@ -34,12 +34,12 @@ sequenceDiagram
     actor User
     participant Frontend as React frontend
     participant API as FastAPI backend
-    participant Claude as Anthropic Claude API
+    participant Anthropic as Anthropic API
 
     User->>Frontend: Request paid AI feature
     Frontend->>API: Send feature request
-    API->>Claude: Make gated API call
-    Claude-->>API: Return generated result
+    API->>Anthropic: Make gated API call
+    Anthropic-->>API: Return generated result
     API-->>Frontend: Return result
     Frontend-->>User: Present result
 ```

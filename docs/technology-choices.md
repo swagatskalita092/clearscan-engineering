@@ -76,7 +76,7 @@ GitHub Actions runs the automated tests. Docker packages the backend for Railway
 
 ## AI boundary
 
-The Anthropic Claude API is not part of core scoring. It is used only for two paid features:
+The Anthropic API is not part of core scoring. It is used only for two paid features:
 
 - AI-assisted bullet rewrite suggestions
 - AI-generated cover letters

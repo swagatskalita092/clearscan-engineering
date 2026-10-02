@@ -10,9 +10,9 @@ This makes the scoring path deterministic. It also means ClearScan should not be
 
 O*NET is official U.S. Department of Labor occupational data. Using it gives the skills taxonomy an external, public benchmark instead of an invented internal list of "what a role should look like." Recruiters and job seekers can recognize that source. It is a legitimacy choice, not a claim that the score is an official government assessment.
 
-## 2. Restrict Claude to two premium features
+## 2. Restrict the Anthropic API to two premium features
 
-The Anthropic Claude API is used only for:
+The Anthropic API is used only for:
 
 - AI-assisted bullet rewrite suggestions
 - AI-generated cover letters
@@ -27,7 +27,7 @@ For bullets, the user selects a bullet point, requests an AI rewrite, and receiv
 
 ## 3. Separate free scoring value from paid generation
 
-Every free user receives the deterministic score, verdict, top issues, a keyword preview, a section check and rule-based suggestions. Full keyword lists, skill analysis, the five-platform ATS details, bullet analysis and interview probability are paid, as are the two Claude-backed generation features.
+Every free user receives the deterministic score, verdict, top issues, a keyword preview, a section check and rule-based suggestions. Full keyword lists, skill analysis, the five-platform ATS details, bullet analysis and interview probability are paid, as are the two Anthropic-powered generation features.
 
 This split allows:
 
