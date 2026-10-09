@@ -1,8 +1,8 @@
 # ClearScan Engineering
 
-ClearScan is a production résumé-scoring and job-matching platform founded in June 2026 and operated by Swagat Subhash Kalita.
+ClearScan is a production résumé-scoring and job-matching platform live since July 2026 and operated by Swagat Subhash Kalita.
 
-Swagat is the solo founder and engineer. He designed and implemented the frontend, backend, database, payments integration, deployment pipeline, and ongoing operation of the product.
+Swagat is the software engineer who designed and implemented the frontend, backend, database schema, payments integration, deployment, and ongoing operation of the product.
 
 ## Current scale
 

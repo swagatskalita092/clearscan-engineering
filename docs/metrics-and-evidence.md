@@ -1,6 +1,6 @@
 # Metrics and Evidence
 
-- Founded: June 2026
+- Live since: July 2026
 - Résumés parsed: 1000+
 - End-to-end parse time: under 6 seconds
 - FastAPI endpoints: 38

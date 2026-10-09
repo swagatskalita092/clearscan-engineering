@@ -2,7 +2,7 @@
 
 ## Product
 
-ClearScan is a production résumé-scoring and job-matching platform. It has been live since June 2026 at [clearscan.fyi](https://clearscan.fyi).
+ClearScan is a production résumé-scoring and job-matching platform. It has been live since July 2026 at [clearscan.fyi](https://clearscan.fyi).
 
 The product provides a deterministic, rule-based core scoring engine to every free user. That engine uses:
 
@@ -44,7 +44,7 @@ ClearScan is for job seekers who want to evaluate and improve their application 
 
 ## Swagat's role
 
-Swagat Subhash Kalita is ClearScan's solo founder and engineer. He designed and implemented the complete stack himself, including:
+Swagat Subhash Kalita is the software engineer behind ClearScan. He designed and implemented the complete stack himself, including:
 
 - Frontend application
 - Backend application and API
