@@ -36,7 +36,7 @@ The Supabase JavaScript client connects browser applications to supported Supaba
 
 ### FastAPI and Python 3.12
 
-FastAPI provides typed API development, async request support, and integration with Python's data-processing ecosystem. ClearScan currently exposes 38 FastAPI endpoints.
+FastAPI provides typed API development, async request support, and integration with Python's data-processing ecosystem. ClearScan currently exposes 39 FastAPI routes (38 besides the health check).
 
 ### Pydantic
 
@@ -72,7 +72,7 @@ Railway hosts the ClearScan backend and supports deployment of application servi
 
 ### GitHub Actions and Docker
 
-GitHub Actions runs the automated tests. Docker packages the backend for Railway. ClearScan has made 220+ commits to production since July 2026.
+GitHub Actions runs the backend tests. Docker packages the backend for Railway. ClearScan has 500+ commits on main since April 2026.
 
 ## AI boundary
 

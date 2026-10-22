@@ -1,9 +1,10 @@
 # Metrics and Evidence
 
-- Live since: July 2026
-- Résumés parsed: 1000+
-- End-to-end parse time: under 6 seconds
-- FastAPI endpoints: 38
-- Automated tests: 170+
-- Automated test pass rate: 100%
-- 220+ commits to production since July 2026
+- Public launch: July 2026 (development since April 2026)
+- Scans run: over 1000
+- FastAPI routes: 39 (38 besides the health check)
+- Automated tests: 238 (215 backend, 23 frontend)
+- Test result: all 238 passed in a local run on 2026-10-22; GitHub Actions runs the backend suite only
+- Commits: 500+ on main since April 2026
+
+Numbers last verified against the application code on 2026-10-22 (commit e578ebc).

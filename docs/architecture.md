@@ -11,7 +11,7 @@ flowchart LR
     end
 
     subgraph Backend["Backend on Railway"]
-        API["FastAPI on Python 3.12<br/>38 endpoints<br/>Pydantic · httpx"]
+        API["FastAPI on Python 3.12<br/>39 routes<br/>Pydantic · httpx"]
     end
 
     subgraph Data["Supabase Frankfurt"]
