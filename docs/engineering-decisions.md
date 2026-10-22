@@ -4,7 +4,7 @@
 
 ClearScan's core scoring engine is deterministic and rule-based rather than LLM-based. It uses TF-IDF keyword extraction, a custom skills taxonomy, and U.S. Department of Labor O*NET occupational benchmarking data.
 
-This makes the scoring path deterministic. It also means ClearScan should not be described broadly as an AI-powered scoring product. Determinism and speed matter on this path: the same résumé should score the same way, and the measured end-to-end parse is under 6 seconds. An LLM in that loop would add non-repeatable output to the thing every free user depends on.
+This makes the scoring path deterministic. It also means ClearScan should not be described broadly as an AI-powered scoring product. Determinism and speed matter on this path: the same résumé should score the same way, and the free path should not wait on a model call. An LLM in that loop would add non-repeatable output to the thing every free user depends on.
 
 ### Why O*NET specifically
 

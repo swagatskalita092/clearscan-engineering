@@ -2,7 +2,7 @@
 
 ## Product
 
-ClearScan is a production résumé-scoring and job-matching platform. It has been live since July 2026 at [clearscan.fyi](https://clearscan.fyi).
+ClearScan is a production résumé-scoring and job-matching platform. It launched publicly in July 2026 at [clearscan.fyi](https://clearscan.fyi).
 
 The product provides a deterministic, rule-based core scoring engine to every free user. That engine uses:
 
@@ -21,7 +21,7 @@ The Anthropic API is not used for the core score. It is limited to two gated pre
 
 Scoring is not generic. It is a compatibility score between one résumé and one job description.
 
-The user pastes or uploads a résumé, pastes the actual job description text into a second field, and selects an analysis profile: a domain (for example "Software Engineering") plus an experience level (for example "Entry Level"). Returning users get that profile pre-filled from a saved account preference. Measured end-to-end parse time is under 6 seconds.
+The user pastes or uploads a résumé, pastes the actual job description text into a second field, and selects an analysis profile: a domain (for example "Software Engineering") plus an experience level (for example "Entry Level"). Returning users get that profile pre-filled from a saved account preference.
 
 The score is not an LLM judgment. It measures how that specific résumé lines up with that specific job description. The chosen domain and level select the matching profile against U.S. Department of Labor O*NET occupational benchmarks. The path still uses TF-IDF extraction, a custom skills taxonomy, and O*NET data. In plain terms: keyword and skill alignment against the pasted posting, not a generated opinion.
 
@@ -57,15 +57,14 @@ This is not a team project or a demonstration application. It is a live commerci
 
 ## Current operating footprint
 
-- 1000+ résumés parsed
-- Under 6 seconds end-to-end parse time
-- 38 FastAPI endpoints
-- 170+ automated tests with a 100% pass rate
-- 220+ commits to production since July 2026
+- Over 1000 scans run
+- 39 FastAPI routes (38 besides the health check)
+- 238 automated tests (215 backend, 23 frontend); the backend suite runs on GitHub Actions
+- 500+ commits on main since April 2026
 
 ## Operating notes
 
-The 170+ automated tests and 100% pass rate sit on the GitHub Actions pipeline. Stripe handles upgrades, renewals, and downgrades, so subscription state is part of ongoing operation rather than a manual checklist.
+The 215 backend tests run on the GitHub Actions pipeline. Stripe handles upgrades, renewals, and downgrades, so subscription state is part of ongoing operation rather than a manual checklist.
 
 There is no public-facing changelog or release notes page. GitHub Actions runs the automated tests on every push and pull request to main. Production deploys happen automatically from the main branch: the frontend on Netlify and the backend on Railway.
 

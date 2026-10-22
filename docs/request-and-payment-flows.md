@@ -20,7 +20,7 @@ sequenceDiagram
     Frontend-->>User: Present result
 ```
 
-The measured end-to-end parse time is under 6 seconds. The core scoring path is deterministic and does not call an LLM.
+The core scoring path is deterministic and does not call an LLM.
 
 ## Premium Anthropic features
 

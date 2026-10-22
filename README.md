@@ -1,16 +1,15 @@
 # ClearScan Engineering
 
-ClearScan is a production résumé-scoring and job-matching platform live since July 2026 and operated by Swagat Subhash Kalita.
+ClearScan is a production résumé-scoring and job-matching platform launched publicly in July 2026 (development since April 2026) and operated by Swagat Subhash Kalita.
 
 Swagat is the software engineer who designed and implemented the frontend, backend, database schema, payments integration, deployment, and ongoing operation of the product.
 
 ## Current scale
 
-- 1000+ résumés parsed
-- Under 6 seconds end-to-end parse time
-- 38 FastAPI endpoints
-- 170+ automated tests with a 100% pass rate
-- 220+ commits to production since July 2026
+- Over 1000 scans run
+- 39 FastAPI routes (38 besides the health check)
+- 238 automated tests (215 backend, 23 frontend); the backend suite runs on GitHub Actions
+- 500+ commits on main since April 2026
 
 Visit the live product: [clearscan.fyi](https://clearscan.fyi)
 
@@ -38,7 +37,7 @@ The core score is deterministic and rule-based, using O*NET data. The same résu
 - Encryption in transit
 - Row-level access control
 - Payments handled by Stripe; no card data stored
-- 170+ automated tests
+- 238 automated tests
 
 ## Why the source is private
 
