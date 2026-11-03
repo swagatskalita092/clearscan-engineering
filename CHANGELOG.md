@@ -4,6 +4,7 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-03]
 
+- Added incident write-up: the empty list.
 - Added incident write-ups: the disabled webhook, green tests with broken production, and the AI verifier decision.
 
 - Restructured the repository as engineering field notes.
