@@ -4,6 +4,8 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-03]
 
+- Added incident write-ups: the disabled webhook, green tests with broken production, and the AI verifier decision.
+
 - Restructured the repository as engineering field notes.
 - Moved changing figures to STATUS.md.
 - Added LICENSE (CC BY 4.0).

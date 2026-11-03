@@ -2,10 +2,10 @@
 Field notes from building and running a production ATS resume scanner.
 
 [ClearScan](https://clearscan.fyi) is a free tool that scores a resume
-against a specific job posting. It is operated by one person. This
-repository is not its source code. It is a write-up of how the system is
-built, what broke, and what those failures taught. The scoring engine is
-private. The reasoning behind it is not.
+against a specific job posting and shows every rule behind the number. It is
+operated by one person. This repository is not its source code. It is a
+write-up of how the system is built, what broke, and what those failures
+taught. The scoring engine is private. The reasoning behind it is not.
 
 ## Start here
 - [The problem](docs/01-the-problem.md)
