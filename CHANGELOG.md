@@ -4,6 +4,7 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-03]
 
+- Added: the problem, AI that doesn't invent facts, and an incident write-up on the tests that tested a copy. Redesigned the README.
 - Added incident write-up: the empty list.
 - Added incident write-ups: the disabled webhook, green tests with broken production, and the AI verifier decision.
 
