@@ -1,4 +1,8 @@
-# Request and Payment Flows
+# Payment Architecture
+
+*How subscription checkout and webhooks ran while ClearScan charged, and what remains after charging stopped.*
+
+ClearScan charged for a subscription until 31 October 2026 and has been free since. Payments are disabled by a feature flag and the code is retained. This page documents the architecture as it ran in production.
 
 The flows below contain only confirmed product behavior and intentionally remain at a high-level system boundary.
 
@@ -22,9 +26,9 @@ sequenceDiagram
 
 The core scoring path is deterministic and does not call an LLM.
 
-## Premium Anthropic features
+## Anthropic features (historically gated)
 
-Anthropic API calls occur only when a paid user invokes one of these gated features:
+Until 31 October 2026, Anthropic API calls occurred only when a subscriber invoked one of these gated features:
 
 1. AI-assisted bullet rewrite suggestions
 2. AI-generated cover letters
@@ -36,7 +40,7 @@ sequenceDiagram
     participant API as FastAPI backend
     participant Anthropic as Anthropic API
 
-    User->>Frontend: Request paid AI feature
+    User->>Frontend: Request gated AI feature
     Frontend->>API: Send feature request
     API->>Anthropic: Make gated API call
     Anthropic-->>API: Return generated result
@@ -44,9 +48,9 @@ sequenceDiagram
     Frontend-->>User: Present result
 ```
 
-## Checkout and subscription lifecycle
+## Checkout and subscription lifecycle (historical)
 
-Stripe payments are live. Payments are handled by Stripe; no card data is stored. Stripe handles upgrades, renewals, and downgrades.
+Until 31 October 2026, payments were handled by Stripe; no card data is stored. Stripe handled upgrades, renewals, and downgrades. Charging is now disabled by a feature flag and this code path is retained.
 
 ```mermaid
 sequenceDiagram

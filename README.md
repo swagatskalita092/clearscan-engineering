@@ -1,58 +1,56 @@
 # ClearScan Engineering
+Field notes from building and running a production ATS resume scanner.
 
-ClearScan is a production résumé-scoring and job-matching platform launched publicly in July 2026 (development since April 2026) and operated by Swagat Subhash Kalita.
+[ClearScan](https://clearscan.fyi) is a free tool that scores a resume
+against a specific job posting. It is operated by one person. This
+repository is not its source code. It is a write-up of how the system is
+built, what broke, and what those failures taught. The scoring engine is
+private. The reasoning behind it is not.
 
-Swagat is the software engineer who designed and implemented the frontend, backend, database schema, payments integration, deployment, and ongoing operation of the product.
+## Start here
+- [The problem](docs/01-the-problem.md)
+- [Architecture](docs/02-architecture.md)
+- [Scoring philosophy](docs/03-scoring-philosophy.md)
+- [Anti-gaming](docs/04-anti-gaming.md)
+- [AI that doesn't invent facts](docs/05-ai-that-doesnt-invent.md)
 
-## Current scale
+## Incidents
+Real production failures: what it looked like, how it was found, and the
+general lesson.
+- [The disabled webhook](incidents/01-the-disabled-webhook.md)
+- [The empty list](incidents/02-the-empty-list.md)
+- [Green tests, broken production](incidents/03-green-tests-broken-production.md)
+- [Throwing away the AI verifier](incidents/04-throwing-away-the-ai-verifier.md)
 
-- Over 1000 scans run
-- 39 FastAPI routes (38 besides the health check)
-- 238 automated tests (215 backend, 23 frontend); the backend suite runs on GitHub Actions
-- 500+ commits on main since April 2026
+## Reference
+- [Technology choices](docs/06-technology-choices.md)
+- [Testing and CI](docs/07-testing-and-ci.md)
+- [Security and privacy](docs/08-security-and-privacy.md)
+- [Engineering decisions](docs/09-engineering-decisions.md)
+- [Payment architecture (historical)](docs/10-payment-architecture.md)
+- [Build your own](build-your-own/README.md)
+- [Current figures](STATUS.md) and [Changelog](CHANGELOG.md)
 
-Visit the live product: [clearscan.fyi](https://clearscan.fyi)
+## In brief
+React and Vite frontend, FastAPI backend, PostgreSQL on Supabase, deployed on
+Netlify and Railway. The core score is deterministic and rule-based: the same
+resume and posting always produce the same number, because a score you cannot
+reproduce is not a measurement. No language model is called to produce it.
+Two features use a model, both for generating text rather than judging, and
+both are checked deterministically against the user's actual resume.
 
-## AI Features
+ClearScan charged for a subscription until 31 October 2026 and has been free
+for every registered user since.
 
-Both generative features are live in production. They are not placeholders. They are powered by Anthropic: the core score remains deterministic and does not call a model.
+## What this repository is not
+Not the ClearScan source code, which is private. Not open source software.
 
-- **AI Cover Letter Generator**: Anthropic produces a tailored cover letter from the résumé and the job posting. It is designed not to invent facts.
-- **AI Rewrite Suggestions**: Anthropic suggests rewrite wording grounded in the scan results. It is designed not to invent facts.
+## License
+The writing in this repository is licensed under CC BY 4.0: reuse and build
+on it freely with credit. The license covers these documents only, not the
+ClearScan software, name or logo.
 
-## Scoring Engine
-
-The core score is deterministic and rule-based, using O*NET data. The same résumé and job description should produce the same number.
-
-- TF-IDF keyword extraction, with O*NET (U.S. Department of Labor) occupation data across 62 industry profiles
-- Keyword matching includes synonym recognition with partial credit
-- Scoring includes safeguards against keyword stuffing
-- Score components: Keywords, Skills, Bullet Quality, Sections, Formatting
-- ATS formatting checks across five platforms (Workday, Taleo, Greenhouse, Lever, iCIMS)
-
-## Security and privacy
-
-- GDPR compliance
-- EU hosting
-- Encryption in transit
-- Row-level access control
-- Payments handled by Stripe; no card data stored
-- 238 automated tests
-
-## Why the source is private
-
-ClearScan is an actively operated commercial product. Its production source code is therefore private. This public dossier documents the product's architecture, engineering decisions, technology choices, operating evidence, and Swagat's role without exposing proprietary source code, customer data, credentials, or sensitive implementation details.
-
-The dossier includes only verified product facts and general architectural context. It omits unverified implementation detail rather than filling gaps with inferred claims.
-
-## Dossier
-
-- [Product and role](docs/product-and-role.md)
-- [Architecture](docs/architecture.md)
-- [Request and payment flows](docs/request-and-payment-flows.md)
-- [Engineering decisions](docs/engineering-decisions.md)
-- [Testing and CI/CD](docs/testing-and-observability.md)
-- [Security and privacy](docs/security-and-privacy.md)
-- [Technology choices](docs/technology-choices.md)
-- [Metrics and evidence](docs/metrics-and-evidence.md)
-- [Future evidence policy](evidence/README.md)
+## Author
+Swagat Subhash Kalita designs, builds and operates ClearScan.
+[clearscan.fyi](https://clearscan.fyi) and
+[LinkedIn](https://www.linkedin.com/company/clearscan-ats/)

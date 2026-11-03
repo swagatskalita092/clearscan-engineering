@@ -1,5 +1,7 @@
 # Technology Choices
 
+*Why each piece of the verified ClearScan stack is a reasonable choice for this kind of product.*
+
 ClearScan's verified stack is listed below. The rationale describes generally applicable properties of each technology, not undocumented claims about the original private implementation decision.
 
 ## Frontend
@@ -36,7 +38,7 @@ The Supabase JavaScript client connects browser applications to supported Supaba
 
 ### FastAPI and Python 3.12
 
-FastAPI provides typed API development, async request support, and integration with Python's data-processing ecosystem. ClearScan currently exposes 39 FastAPI routes (38 besides the health check).
+FastAPI provides typed API development, async request support, and integration with Python's data-processing ecosystem. ClearScan uses a FastAPI backend.
 
 ### Pydantic
 
@@ -48,7 +50,7 @@ httpx provides synchronous and asynchronous HTTP client APIs for Python.
 
 ### Stripe
 
-Stripe provides payment and subscription APIs. ClearScan uses live Stripe payments. Payments are handled by Stripe; no card data is stored.
+Stripe provides payment and subscription APIs. ClearScan used Stripe for subscription charging until 31 October 2026. Payments are disabled by a feature flag and the code is retained. No card data is stored.
 
 ### Resend
 
@@ -72,13 +74,13 @@ Railway hosts the ClearScan backend and supports deployment of application servi
 
 ### GitHub Actions and Docker
 
-GitHub Actions runs the backend tests. Docker packages the backend for Railway. ClearScan has 500+ commits on main since April 2026.
+GitHub Actions runs the backend tests. Docker packages the backend for Railway. Changing figures such as commit counts live in [STATUS.md](../STATUS.md).
 
 ## AI boundary
 
-The Anthropic API is not part of core scoring. It is used only for two paid features:
+The Anthropic API is not part of core scoring. It is used only for two text-generation features:
 
 - AI-assisted bullet rewrite suggestions
 - AI-generated cover letters
 
-These features are gated behind the paid subscription.
+Until 31 October 2026 those features were gated behind the paid tier. ClearScan has been free for every registered user since.
