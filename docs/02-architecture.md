@@ -8,7 +8,7 @@ A browser app, an API, and a managed database with authentication. A few
 third-party services sit around them, each doing one job.
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBFF','primaryTextColor':'#1B1850','primaryBorderColor':'#7C6CF0','lineColor':'#7C6CF0','fontFamily':'Inter, Segoe UI, sans-serif'}}}%%
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#FFEDD5','primaryTextColor':'#111827','primaryBorderColor':'#EA580C','lineColor':'#EA580C','fontFamily':'Plus Jakarta Sans, Inter, Segoe UI, sans-serif'}}}%%
 flowchart LR
     User[ClearScan user]
 

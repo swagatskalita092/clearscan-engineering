@@ -1,20 +1,20 @@
 <div align="center">
 
-<img src="assets/banner.svg" alt="ClearScan Engineering. Field notes from building and running a production ATS resume scanner." width="100%">
+<img src="assets/banner.png" alt="ClearScan Engineering. Field notes from building and running a production ATS resume scanner." width="100%">
 
 <br>
 
-![License](https://img.shields.io/badge/license-CC%20BY%204.0-7C6CF0?style=for-the-badge&labelColor=14123A)
-![ClearScan](https://img.shields.io/badge/ClearScan-free-34D8C0?style=for-the-badge&labelColor=14123A)
-![Product source](https://img.shields.io/badge/product%20source-private-4B5578?style=for-the-badge&labelColor=14123A)
+![License](https://img.shields.io/badge/license-CC%20BY%204.0-EA580C?style=for-the-badge&labelColor=111827)
+![ClearScan](https://img.shields.io/badge/ClearScan-free-16A34A?style=for-the-badge&labelColor=111827)
+![Product source](https://img.shields.io/badge/product%20source-private-4B5563?style=for-the-badge&labelColor=111827)
 
-![React](https://img.shields.io/badge/React-14123A?style=flat-square&logo=react&logoColor=61DAFB)
-![Vite](https://img.shields.io/badge/Vite-14123A?style=flat-square&logo=vite&logoColor=A78BFA)
-![FastAPI](https://img.shields.io/badge/FastAPI-14123A?style=flat-square&logo=fastapi&logoColor=34D8C0)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14123A?style=flat-square&logo=postgresql&logoColor=8CB4E6)
-![Supabase](https://img.shields.io/badge/Supabase-14123A?style=flat-square&logo=supabase&logoColor=3ECF8E)
-![Netlify](https://img.shields.io/badge/Netlify-14123A?style=flat-square&logo=netlify&logoColor=34D8C0)
-![Railway](https://img.shields.io/badge/Railway-14123A?style=flat-square&logo=railway&logoColor=white)
+![React](https://img.shields.io/badge/React-111827?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-111827?style=flat-square&logo=vite&logoColor=A78BFA)
+![FastAPI](https://img.shields.io/badge/FastAPI-111827?style=flat-square&logo=fastapi&logoColor=34D8C0)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-111827?style=flat-square&logo=postgresql&logoColor=8CB4E6)
+![Supabase](https://img.shields.io/badge/Supabase-111827?style=flat-square&logo=supabase&logoColor=3ECF8E)
+![Netlify](https://img.shields.io/badge/Netlify-111827?style=flat-square&logo=netlify&logoColor=34D8C0)
+![Railway](https://img.shields.io/badge/Railway-111827?style=flat-square&logo=railway&logoColor=white)
 
 [Website](https://clearscan.fyi) &nbsp;|&nbsp; [Docs](docs/) &nbsp;|&nbsp; [Incidents](incidents/) &nbsp;|&nbsp; [Build your own](build-your-own/README.md) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
 
@@ -64,14 +64,14 @@ was found, and the general lesson.
 ## <img src="assets/icons/layers.svg" width="26" height="26" align="middle">&nbsp; The system at a glance
 
 ```mermaid
-%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBFF','primaryTextColor':'#1B1850','primaryBorderColor':'#7C6CF0','lineColor':'#7C6CF0','fontFamily':'Inter, Segoe UI, sans-serif'}}}%%
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#FFEDD5','primaryTextColor':'#111827','primaryBorderColor':'#EA580C','lineColor':'#EA580C','fontFamily':'Plus Jakarta Sans, Inter, Segoe UI, sans-serif'}}}%%
 flowchart LR
     U["Job seeker"] --> W["Web app<br/>React + Vite<br/>Netlify"]
     W --> A["API<br/>FastAPI<br/>Railway"]
     A --> D[("PostgreSQL<br/>Supabase")]
     A --> S["Deterministic<br/>scoring engine"]
     A -.-> M["Language model<br/>text features only"]
-    classDef core fill:#D9FBF4,stroke:#1FB59E,color:#0B3D36;
+    classDef core fill:#111827,stroke:#111827,color:#FFFFFF;
     class S core;
 ```
 
@@ -112,8 +112,9 @@ of these pages stay true.
 
 The writing in this repository is licensed under
 [CC BY 4.0](LICENSE): reuse and build on it freely, with credit. The license
-covers these documents and the banner and icons in `assets/`, not the ClearScan
-software, name or logo.
+covers these documents and the banner and icons in `assets/`.
+It does not cover the ClearScan software, name or logo, including the
+files in `assets/brand/`.
 
 ## <img src="assets/icons/user.svg" width="26" height="26" align="middle">&nbsp; Author
 
