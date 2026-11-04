@@ -1,0 +1,43 @@
+name: Share an incident
+description: Tell the story of a failure from your own ATS or scanner
+title: "Incident: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Real failures teach more than success stories. Describe the system in general terms. Do not include customer data, credentials, or anything confidential.
+  - type: textarea
+    id: system
+    attributes:
+      label: The system, briefly
+      description: What does it do, and roughly how is it built?
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened
+      description: What did people see, and how was it found?
+    validations:
+      required: true
+  - type: textarea
+    id: cause
+    attributes:
+      label: Root cause
+    validations:
+      required: true
+  - type: textarea
+    id: lesson
+    attributes:
+      label: What it taught you
+    validations:
+      required: true
+  - type: checkboxes
+    id: permission
+    attributes:
+      label: Permission
+      options:
+        - label: I am happy for this to be adapted and published here under CC BY 4.0, with credit to me.
+          required: true
+        - label: This contains no confidential information, secrets or personal data.
+          required: true

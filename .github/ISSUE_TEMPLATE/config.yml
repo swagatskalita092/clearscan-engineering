@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a question or discuss a design choice
+    url: https://github.com/swagatskalita092/clearscan-engineering/discussions
+    about: Questions and open-ended discussion belong in Discussions, not Issues.

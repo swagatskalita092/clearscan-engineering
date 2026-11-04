@@ -103,6 +103,7 @@ for every registered user since.
 - [Payment architecture (historical)](docs/10-payment-architecture.md)
 - [Build your own](build-your-own/README.md)
 - [Current figures](STATUS.md) and [Changelog](CHANGELOG.md)
+- [Contributing](CONTRIBUTING.md), [code of conduct](CODE_OF_CONDUCT.md) and [security policy](SECURITY.md)
 
 Numbers that change over time live only in [STATUS.md](STATUS.md), so the rest
 of these pages stay true.

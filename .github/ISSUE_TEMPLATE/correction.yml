@@ -1,0 +1,33 @@
+name: Correction
+description: Report a factual error, broken link or outdated statement
+title: "Correction: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping keep these notes accurate. This repository is maintained by one person, so replies can take days or weeks.
+  - type: input
+    id: page
+    attributes:
+      label: Which page?
+      placeholder: docs/02-architecture.md
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Source or evidence
+      description: A link or a short explanation. Optional.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: This contains no secrets, customer data or real resumes.
+          required: true

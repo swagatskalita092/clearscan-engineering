@@ -4,6 +4,7 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-04]
 
+- Opened the repository to contributions: contributing guide, code of conduct, security policy, issue and pull request templates, and an automatic documentation check.
 - Rewrote security and privacy, replaced a bare GDPR compliance claim with accurate wording, and wrote the build-your-own guide.
 - Rewrote architecture, technology choices, and testing pages. Corrected the claim that frontend tests are not part of CI.
 - Added: scoring philosophy and anti-gaming principles.
