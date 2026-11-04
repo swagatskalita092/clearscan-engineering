@@ -4,6 +4,7 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-04]
 
+- Added: scoring philosophy and anti-gaming principles.
 - Redesigned the README with a custom banner and icon set.
 
 ## [2026-11-03]
