@@ -1,86 +1,26 @@
-# Technology Choices
+# Technology choices
 
-*Why each piece of the verified ClearScan stack is a reasonable choice for this kind of product.*
+*What was picked, why, and what each choice cost.*
 
-ClearScan's verified stack is listed below. The rationale describes generally applicable properties of each technology, not undocumented claims about the original private implementation decision.
+Most technology lists stop at the pick. This page keeps the bill. Every row
+below is grounded in something that actually happened.
 
-## Frontend
+| Choice | Why it was picked | What it cost |
+|---|---|---|
+| **FastAPI on Python 3.12** | Typed request validation, async support, and Python's text-processing ecosystem for the scoring work | The API grew by accretion into very large modules, which let the scoring formula be duplicated. See [The tests that tested a copy](../incidents/05-the-tests-that-tested-a-copy.md) |
+| **Deterministic rules, TF-IDF and public O*NET data** | Reproducible, explainable, and no per-scan model cost | It cannot learn from data. Occupational data must be curated, and coverage is uneven across fields. See [Scoring philosophy](03-scoring-philosophy.md) |
+| **Supabase: PostgreSQL and authentication, EU region** | One managed service for both, with row-level access control and EU residency | Authentication and data are coupled to one vendor. Database access over plain HTTP through an in-house helper hid an outage as emptiness. See [The empty list](../incidents/02-the-empty-list.md) |
+| **Netlify and Railway, deploying from main** | No deployment ceremony for a one-person team | No staging environment, so main is production. The browser security policy must be updated for every new third-party origin |
+| **GitHub Actions** | Tests on every push and pull request, scheduled maintenance jobs, and a weekly production check | A red build only helps if someone reads it. CI was red for three commits before anyone noticed, because the failure emails were going unopened |
+| **Stripe Checkout and webhooks (historical)** | No card data stored by ClearScan, and a standard integration | Payment state lived in several places, and one disabled endpoint caused six separate bugs in a day. See [The disabled webhook](../incidents/01-the-disabled-webhook.md) |
+| **A small language model for two text features** | Writing is the deliverable, so a model fits | Latency and cost had to be measured, reasoning mode was switched off, and an AI verifier was built and removed. See [AI that doesn't invent facts](05-ai-that-doesnt-invent.md) |
+| **In-browser PDF generation with a WebAssembly typesetter** | No server-side rendering service to run | A very large one-time download for the user, and a specific allowance in the browser security policy |
+| **A local-first job tracker** | Typing never waits for the network | Much more code than a plain save button: sync, conflict merging and storage-failure handling. See [The empty list](../incidents/02-the-empty-list.md) |
+| **TypeScript on the data layer only** | Introduced to make one specific bug impossible to repeat | A mixed codebase, and page code that the compiler does not check |
+| **Resend for email** | A simple API | Two systems used separate credentials, and one silently failed until it was traced. See [The disabled webhook](../incidents/01-the-disabled-webhook.md) |
 
-### React
+## How to use this page
 
-React supports component-based user interfaces and a mature frontend ecosystem.
-
-### Vite
-
-Vite provides a focused development and build toolchain for modern frontend applications.
-
-### Tailwind CSS
-
-Tailwind CSS provides utility-based styling that can keep UI implementation close to component markup.
-
-### React Router
-
-React Router provides client-side routing for React applications.
-
-### React Helmet
-
-React Helmet manages document-head metadata from React components.
-
-### Lucide React
-
-Lucide React provides a consistent set of SVG icons as React components.
-
-### Supabase JS Client
-
-The Supabase JavaScript client connects browser applications to supported Supabase capabilities.
-
-## Backend
-
-### FastAPI and Python 3.12
-
-FastAPI provides typed API development, async request support, and integration with Python's data-processing ecosystem. ClearScan uses a FastAPI backend.
-
-### Pydantic
-
-Pydantic supports typed data validation and serialization in Python and integrates directly with FastAPI.
-
-### httpx
-
-httpx provides synchronous and asynchronous HTTP client APIs for Python.
-
-### Stripe
-
-Stripe provides payment and subscription APIs. ClearScan used Stripe for subscription charging until 31 October 2026. Payments are disabled by a feature flag and the code is retained. No card data is stored.
-
-### Resend
-
-Resend provides an API for application email.
-
-## Data and authentication
-
-### Supabase and PostgreSQL
-
-Supabase combines managed PostgreSQL, authentication, and row-level access control. ClearScan uses Supabase/PostgreSQL, with its database in the Frankfurt region.
-
-## Hosting and delivery
-
-### Netlify
-
-Netlify hosts the ClearScan frontend and supports deployment of web frontend assets.
-
-### Railway
-
-Railway hosts the ClearScan backend and supports deployment of application services.
-
-### GitHub Actions and Docker
-
-GitHub Actions runs the backend tests. Docker packages the backend for Railway. Changing figures such as commit counts live in [STATUS.md](../STATUS.md).
-
-## AI boundary
-
-The Anthropic API is not part of core scoring. It is used only for two text-generation features:
-
-- AI-assisted bullet rewrite suggestions
-- AI-generated cover letters
-
-Until 31 October 2026 those features were gated behind the paid tier. ClearScan has been free for every registered user since.
+Do not copy the picks. Copy the habit: when you choose a technology, write
+down the cost you expect, and come back later to see what it really was.
+Your team, scale and constraints will make different choices correct.
