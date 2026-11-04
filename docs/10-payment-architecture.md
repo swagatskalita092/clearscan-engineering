@@ -4,6 +4,8 @@
 
 ClearScan charged for a subscription until 31 October 2026 and has been free since. Payments are disabled by a feature flag and the code is retained. This page documents the architecture as it ran in production.
 
+For what went wrong in this flow, read [The disabled webhook](../incidents/01-the-disabled-webhook.md) and [Green tests, broken production](../incidents/03-green-tests-broken-production.md).
+
 The flows below contain only confirmed product behavior and intentionally remain at a high-level system boundary.
 
 ## Résumé upload and scoring

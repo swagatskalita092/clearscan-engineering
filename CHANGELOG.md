@@ -4,6 +4,7 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-04]
 
+- Rewrote security and privacy, replaced a bare GDPR compliance claim with accurate wording, and wrote the build-your-own guide.
 - Rewrote architecture, technology choices, and testing pages. Corrected the claim that frontend tests are not part of CI.
 - Added: scoring philosophy and anti-gaming principles.
 - Redesigned the README with a custom banner and icon set.
