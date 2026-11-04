@@ -2,6 +2,10 @@
 
 All notable changes to this documentation repository are recorded here.
 
+## [2026-11-04]
+
+- Redesigned the README with a custom banner and icon set.
+
 ## [2026-11-03]
 
 - Added: the problem, AI that doesn't invent facts, and an incident write-up on the tests that tested a copy. Redesigned the README.

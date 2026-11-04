@@ -1,35 +1,44 @@
 <div align="center">
 
-# ClearScan Engineering
+<img src="assets/banner.svg" alt="ClearScan Engineering. Field notes from building and running a production ATS resume scanner." width="100%">
 
-**Field notes from building and running a production ATS resume scanner**
+<br>
 
-![License](https://img.shields.io/badge/license-CC%20BY%204.0-blue)
-![ClearScan](https://img.shields.io/badge/ClearScan-free-brightgreen)
-![Product source](https://img.shields.io/badge/product%20source-private-lightgrey)
-![Docs](https://img.shields.io/badge/docs-engineering%20notes-informational)
+![License](https://img.shields.io/badge/license-CC%20BY%204.0-7C6CF0?style=for-the-badge&labelColor=14123A)
+![ClearScan](https://img.shields.io/badge/ClearScan-free-34D8C0?style=for-the-badge&labelColor=14123A)
+![Product source](https://img.shields.io/badge/product%20source-private-4B5578?style=for-the-badge&labelColor=14123A)
 
-[Website](https://clearscan.fyi) · [Start here](#-start-here) · [Incidents](#-incidents) · [Build your own](build-your-own/README.md) · [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
+![React](https://img.shields.io/badge/React-14123A?style=flat-square&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-14123A?style=flat-square&logo=vite&logoColor=A78BFA)
+![FastAPI](https://img.shields.io/badge/FastAPI-14123A?style=flat-square&logo=fastapi&logoColor=34D8C0)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-14123A?style=flat-square&logo=postgresql&logoColor=8CB4E6)
+![Supabase](https://img.shields.io/badge/Supabase-14123A?style=flat-square&logo=supabase&logoColor=3ECF8E)
+![Netlify](https://img.shields.io/badge/Netlify-14123A?style=flat-square&logo=netlify&logoColor=34D8C0)
+![Railway](https://img.shields.io/badge/Railway-14123A?style=flat-square&logo=railway&logoColor=white)
+
+[Website](https://clearscan.fyi) &nbsp;|&nbsp; [Docs](docs/) &nbsp;|&nbsp; [Incidents](incidents/) &nbsp;|&nbsp; [Build your own](build-your-own/README.md) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
 
 </div>
 
----
+<br>
 
-## 👋 What this is
+## <img src="assets/icons/book-open.svg" width="26" height="26" align="middle">&nbsp; What this is
 
 [ClearScan](https://clearscan.fyi) is a free tool that scores a resume
 against a specific job posting and shows every rule behind the number. It is
 operated by one person.
 
-This repository is **not** its source code. It is a write-up of how the system
-is built, what broke in production, and what those failures taught. The
-scoring engine is private. The reasoning behind it is not, and most of what is
-hard about this problem has nothing to do with the constants.
+This repository is a write-up of how the system is built, what broke in
+production, and what those failures taught. The scoring engine is private. The
+reasoning behind it is not, and most of what is hard about this problem has
+nothing to do with the constants.
 
-> If you are building your own ATS or resume scanner, this is meant to save
-> you some of the mistakes.
+> [!NOTE]
+> This is not the ClearScan source code, and ClearScan is not open source
+> software. If you are building your own ATS or resume scanner, these notes are
+> meant to save you some of the mistakes.
 
-## 🧭 Start here
+## <img src="assets/icons/compass.svg" width="26" height="26" align="middle">&nbsp; Start here
 
 | Read | You will learn |
 |---|---|
@@ -39,7 +48,7 @@ hard about this problem has nothing to do with the constants.
 | [Anti-gaming](docs/04-anti-gaming.md) | Handling resumes written for the scanner rather than the job |
 | [AI that doesn't invent facts](docs/05-ai-that-doesnt-invent.md) | Five layers, and why the most important one is not AI |
 
-## 🔥 Incidents
+## <img src="assets/icons/alert.svg" width="26" height="26" align="middle">&nbsp; Incidents
 
 The parts worth reading. Real production failures: what it looked like, how it
 was found, and the general lesson.
@@ -52,15 +61,18 @@ was found, and the general lesson.
 | [Throwing away the AI verifier](incidents/04-throwing-away-the-ai-verifier.md) | Measuring your own clever idea, then deleting it |
 | [The tests that tested a copy](incidents/05-the-tests-that-tested-a-copy.md) | A green suite that never touched the code users run |
 
-## 🏗️ The system at a glance
+## <img src="assets/icons/layers.svg" width="26" height="26" align="middle">&nbsp; The system at a glance
 
 ```mermaid
+%%{init: {'theme':'base','themeVariables':{'primaryColor':'#EDEBFF','primaryTextColor':'#1B1850','primaryBorderColor':'#7C6CF0','lineColor':'#7C6CF0','fontFamily':'Inter, Segoe UI, sans-serif'}}}%%
 flowchart LR
-    U["👤 Job seeker"] --> W["Web app<br/>React + Vite<br/>Netlify"]
+    U["Job seeker"] --> W["Web app<br/>React + Vite<br/>Netlify"]
     W --> A["API<br/>FastAPI<br/>Railway"]
     A --> D[("PostgreSQL<br/>Supabase")]
     A --> S["Deterministic<br/>scoring engine"]
     A -.-> M["Language model<br/>text features only"]
+    classDef core fill:#D9FBF4,stroke:#1FB59E,color:#0B3D36;
+    class S core;
 ```
 
 The core score is **deterministic and rule-based**: the same resume and posting
@@ -72,7 +84,7 @@ against the user's actual resume.
 ClearScan charged for a subscription until 31 October 2026 and has been free
 for every registered user since.
 
-## 🧱 Principles
+## <img src="assets/icons/shield.svg" width="26" height="26" align="middle">&nbsp; Principles
 
 | Principle | In practice |
 |---|---|
@@ -82,7 +94,7 @@ for every registered user since.
 | **Facts come from the user** | Generated text is checked against the resume |
 | **Honest about limits** | The tool says what it cannot know |
 
-## 📚 Reference
+## <img src="assets/icons/library.svg" width="26" height="26" align="middle">&nbsp; Reference
 
 - [Technology choices](docs/06-technology-choices.md)
 - [Testing and CI](docs/07-testing-and-ci.md)
@@ -95,18 +107,15 @@ for every registered user since.
 Numbers that change over time live only in [STATUS.md](STATUS.md), so the rest
 of these pages stay true.
 
-## 🔒 What this repository is not
-
-Not the ClearScan source code, which is private. Not open source software.
-
-## 📄 License
+## <img src="assets/icons/scale.svg" width="26" height="26" align="middle">&nbsp; License
 
 The writing in this repository is licensed under
 [CC BY 4.0](LICENSE): reuse and build on it freely, with credit. The license
-covers these documents only, not the ClearScan software, name or logo.
+covers these documents and the banner and icons in `assets/`, not the ClearScan
+software, name or logo.
 
-## 👤 Author
+## <img src="assets/icons/user.svg" width="26" height="26" align="middle">&nbsp; Author
 
 Swagat Subhash Kalita designs, builds and operates ClearScan.
 
-[clearscan.fyi](https://clearscan.fyi) · [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
+[clearscan.fyi](https://clearscan.fyi) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
