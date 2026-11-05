@@ -51,7 +51,9 @@ O*NET programme as an external reference, and combines it with what the
 specific posting asks for.
 
 Using a public benchmark does not make the result correct. It makes the
-assumption inspectable and not mine alone.
+assumption inspectable and open to argument. What that data gives you, and
+what it cannot, is covered in
+[Occupational data](10-occupational-data.md).
 
 ## Context changes the weighing
 

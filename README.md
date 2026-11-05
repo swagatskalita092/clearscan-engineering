@@ -26,7 +26,7 @@
 
 [ClearScan](https://clearscan.fyi) is a free tool that scores a resume
 against a specific job posting and shows every rule behind the number. It is
-operated by one person.
+built and operated independently.
 
 This repository is a write-up of how the system is built, what broke in
 production, and what those failures taught. The scoring engine is private. The
@@ -47,6 +47,8 @@ nothing to do with the constants.
 | [Scoring philosophy](docs/03-scoring-philosophy.md) | How to reason about a score when there is no ground truth |
 | [Anti-gaming](docs/04-anti-gaming.md) | Handling resumes written for the scanner rather than the job |
 | [AI that doesn't invent facts](docs/05-ai-that-doesnt-invent.md) | Five layers, and why the most important one is not AI |
+| [Occupational data](docs/10-occupational-data.md) | What O*NET and ESCO give a scanner, what they cannot, and the licence you take on |
+| [Resume conventions around the world](docs/11-resume-conventions-around-the-world.md) | How resumes and CVs differ by country, and what that does to a parser |
 
 ## <img src="assets/icons/alert.svg" width="26" height="26" align="middle">&nbsp; Incidents
 
@@ -81,9 +83,6 @@ measurement. No language model is called to produce it. Two features use a
 model, both for generating text rather than judging, and both are checked
 against the user's actual resume.
 
-ClearScan charged for a subscription until 31 October 2026 and has been free
-for every registered user since.
-
 ## <img src="assets/icons/shield.svg" width="26" height="26" align="middle">&nbsp; Principles
 
 | Principle | In practice |
@@ -100,7 +99,6 @@ for every registered user since.
 - [Testing and CI](docs/07-testing-and-ci.md)
 - [Security and privacy](docs/08-security-and-privacy.md)
 - [Engineering decisions](docs/09-engineering-decisions.md)
-- [Payment architecture (historical)](docs/10-payment-architecture.md)
 - [Build your own](build-your-own/README.md)
 - [Current figures](STATUS.md) and [Changelog](CHANGELOG.md)
 - [Contributing](CONTRIBUTING.md), [code of conduct](CODE_OF_CONDUCT.md) and [security policy](SECURITY.md)

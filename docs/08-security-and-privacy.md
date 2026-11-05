@@ -23,17 +23,6 @@ Only public keys. Every secret stays on the API.
   when a user invokes one of the two text features. The core score is computed
   inside ClearScan's own backend and does not go to a model provider.
 - **An email provider** receives the address of the person being emailed.
-- **A payment provider** handled payment details while charging was on.
-  ClearScan stored no card data.
-
-## Payments (historical)
-
-While charging was on, payments were verified directly with the provider
-rather than trusting the browser. Webhook events were deduplicated by event
-identifier, and refunds were checked before an account was upgraded. The
-failures along the way are written up in
-[The disabled webhook](../incidents/01-the-disabled-webhook.md) and
-[Green tests, broken production](../incidents/03-green-tests-broken-production.md).
 
 ## Data on the device
 

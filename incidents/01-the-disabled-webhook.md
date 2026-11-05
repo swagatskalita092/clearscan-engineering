@@ -5,19 +5,20 @@
 | | |
 |---|---|
 | Date | 4 October 2026 |
-| Impact | One real customer charged and left on the free plan |
+| Impact | One live test purchase succeeded at the provider but was not upgraded |
 | Root cause | The payment provider's webhook endpoint was switched off |
 | Found by | Walking through the provider's dashboard after every code fix had shipped |
 
 ## What happened
 
-ClearScan took payments through Stripe Checkout. When a payment succeeds,
-Stripe sends a webhook event to the backend, which marks the payment complete
-and upgrades the account. Two fallbacks exist: the success page checks the
-payment directly with Stripe, and a manual "sync" button repeats that check.
+ClearScan accepted payments through a hosted checkout from a payment
+provider. When a payment succeeds, the provider sends a webhook event to the
+backend, which marks the payment complete and upgrades the account. Two
+fallbacks exist: the success page checks the payment directly with the
+provider, and a manual "sync" button repeats that check.
 
-A friend bought the plan live, on a screen share, a day after a round of
-billing hardening shipped. The charge succeeded in Stripe. The success page
+A tester made a live purchase on a screen share, a day after a round of
+payment hardening shipped. The charge succeeded at the provider. The success page
 said it could not verify the payment, and the sync button failed too. The
 payment record in the database was stuck as pending.
 
@@ -29,15 +30,15 @@ genuine:
 - The success page swallowed every exception into one generic message, which
   made a real failure look like a declined card. It now says what went wrong.
 - The sync button refused any record not already marked complete, so it could
-  never rescue a pending one. It now asks Stripe and accepts pending records
-  that Stripe confirms as paid.
+  never rescue a pending one. It now asks the provider and accepts pending records
+  that the provider confirms as paid.
 
-Each fix exposed the next problem. A refund check was added because Stripe
+Each fix exposed the next problem. A refund check was added because the provider
 does not change a payment's status when it is refunded; the refund is
 recorded separately on the charge. That check shipped a regression, described
 in [the next incident](03-green-tests-broken-production.md). When the webhook
 finally started delivering again, the handler crashed on an unexpected empty
-metadata field. After that, it wrote a plan name that the other code paths
+metadata field. After that, it wrote an account level name that the other code paths
 normalised first, and the database rejected it. A scheduled reconciliation
 job turned out to be blind to refunds. Alert emails to the operator had been
 failing silently because the backend shared an email credential with a
@@ -49,7 +50,7 @@ That is six distinct bugs, all real and all worth fixing.
 
 After all six were fixed, a brand new test account still needed the manual
 sync button to get upgraded. That should not happen when the webhook works.
-Opening the Stripe dashboard showed the webhook endpoint was disabled, with
+Opening the provider's dashboard showed the webhook endpoint was disabled, with
 zero deliveries for the entire week on the chart.
 
 The primary path had been dead the whole time. Every payment depended on the

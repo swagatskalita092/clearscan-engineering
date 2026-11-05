@@ -6,38 +6,37 @@
 |---|---|
 | Date | 4 October 2026, same day as the webhook incident |
 | Impact | All live payment verification failed from deploy until the fix |
-| Real customers affected | None. Only the operator's own test account was in flight |
+| Real users affected | None. Only the operator's own test account was in flight |
 | Root cause | Tests mocked a library's objects with a type that behaves differently |
 | Found by | Testing the change live with a fresh account |
 
 ## What happened
 
 A refund check was added to payment verification. It needed a small helper
-that reads a field from a Stripe response. The helper was written to accept
-either a plain dictionary or a Stripe SDK object, and it decided which one it
+that reads a field from a provider response. The helper was written to accept
+either a plain dictionary or a provider SDK object, and it decided which one it
 had by checking for a get method.
 
-Every test passed. The tests built fake Stripe responses as plain
+Every test passed. The tests built fake provider responses as plain
 dictionaries, and dictionaries have a get method.
 
-Real Stripe SDK objects do not. Reading that attribute on a real object
+Real provider SDK objects do not. Reading that attribute on a real object
 raised an error inside the library. The helper caught the error and returned
 nothing. In production, the payment status and the paid flag always read back
-as empty, whatever Stripe actually said. Every live verification and every
+as empty, whatever the provider actually said. Every live verification and every
 manual sync was failing, not only the refund case it was written for.
 
 ## How it was found
 
 Not by the test suite, and not by monitoring. The operator tested the refund
-fix live with a fresh account. The upgrade failed with "Stripe does not show
+fix live with a fresh account. The upgrade failed with "the provider does not show
 this payment as paid" and the sync button returned errors repeatedly.
 
 ## Blast radius
 
-Checked rather than assumed. Only two live checkout sessions existed on that
-day. One predated the broken change and was correctly blocked for being
-refunded. The other was the operator's own test account. Nobody else could
-have been affected.
+Checked rather than assumed. The payment records for that day showed that the
+only live session in flight after the change was the operator's own test
+account. Nobody else could have been affected.
 
 ## The fix
 

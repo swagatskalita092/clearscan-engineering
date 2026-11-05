@@ -23,7 +23,9 @@ mistakes worth avoiding.
 
 1. **Parsing first.** Collect real, messy files: columns, tables, odd
    bullets, scanned pages. Measure what your parser reads wrongly. Every later
-   stage inherits its mistakes, and many "scoring bugs" are parsing bugs.
+   stage inherits its mistakes, and many "scoring bugs" are parsing bugs. If
+   your users are in several countries, see
+   [Resume conventions around the world](../docs/11-resume-conventions-around-the-world.md).
 2. **A small, legible baseline score.** A handful of components you can each
    explain in one sentence. Make it reproducible before making it clever. See
    [Scoring philosophy](../docs/03-scoring-philosophy.md).
@@ -34,7 +36,9 @@ mistakes worth avoiding.
 4. **Explanations.** For every deduction, say in plain words what happened and
    what to change. Decide what each explanation reveals.
 5. **External benchmarks.** Use public occupational data for assumptions
-   about what roles involve, so the assumptions can be argued with.
+   about what roles involve, so the assumptions can be argued with. Pin the
+   version, review every update, and read the licence. See
+   [Occupational data](../docs/10-occupational-data.md).
 6. **Guard rails.** Assume gaming from the first day. Compare against the
    posting, cap rather than ban, and say what was seen. See
    [Anti-gaming](../docs/04-anti-gaming.md).

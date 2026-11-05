@@ -25,7 +25,6 @@ flowchart LR
         DB["PostgreSQL<br/>row-level access control"]
     end
 
-    Stripe["Stripe<br/>Payments (retained)"]
     Anthropic["Anthropic API<br/>Bullet rewrites<br/>Cover letters"]
     Resend["Resend"]
 
@@ -33,7 +32,6 @@ flowchart LR
     Web --> API
     Web --> Auth
     API --> DB
-    API <--> Stripe
     API --> Anthropic
     API --> Resend
 ```
@@ -43,19 +41,19 @@ flowchart LR
 - **Browser app.** Presentation, routing, the job tracker's local storage, and
   in-browser PDF generation for the resume builder.
 - **API.** Everything that needs a secret or a rule: scoring, the two text
-  features, email, and, while it ran, payments.
+  features and email.
 - **Database and authentication.** PostgreSQL with row-level access control,
   hosted in an EU region. The browser talks to authentication directly. Data
   access goes through the API.
-- **Third parties.** A language model provider for two text features, an email
-  provider, and a payment provider whose integration is retained but switched
-  off.
+- **Third parties.** A language model provider for two text features, and an
+  email provider.
 
 ## Where the trust boundaries are
 
 - The browser holds only public keys. Every secret lives on the API.
-- The API never trusts the browser's word about a payment. It asks the
-  provider. See [The disabled webhook](../incidents/01-the-disabled-webhook.md).
+- The API never trusts the browser's word about anything it must verify, such
+  as a payment. It asks the source. See
+  [The disabled webhook](../incidents/01-the-disabled-webhook.md).
 - Maintenance runs as scheduled jobs from the CI system calling protected
   internal endpoints, plus a weekly check against production.
 

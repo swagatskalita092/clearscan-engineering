@@ -2,6 +2,12 @@
 
 All notable changes to this documentation repository are recorded here.
 
+## [2026-11-05]
+
+- Added: occupational data (O*NET and ESCO, limits and licence) and resume conventions around the world.
+- Linked the new pages from the README, scoring philosophy, technology choices and the build-your-own guide.
+- Simplified the architecture, security and decisions pages. Payment incidents now describe the provider in general terms.
+
 ## [2026-11-04]
 
 - Switched the repository visuals to the ClearScan brand theme: new banner, orange icon set and diagram colours.
@@ -20,4 +26,4 @@ All notable changes to this documentation repository are recorded here.
 - Restructured the repository as engineering field notes.
 - Moved changing figures to STATUS.md.
 - Added LICENSE (CC BY 4.0).
-- Recorded that ClearScan became free on 2026-10-31.
+- Recorded that ClearScan is free.

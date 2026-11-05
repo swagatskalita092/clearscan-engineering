@@ -19,7 +19,7 @@ The Anthropic API is used only for:
 - AI-assisted bullet rewrite suggestions
 - AI-generated cover letters
 
-Until 31 October 2026 those features were gated behind the paid tier. The product applies generative AI where generated language is the requested output instead of making it a dependency of the core score.
+The product applies generative AI where generated language is the requested output instead of making it a dependency of the core score.
 
 ### Why these two features, specifically
 
@@ -29,7 +29,7 @@ For bullets, the user selects a bullet point, requests an AI rewrite, and receiv
 
 ## 3. Separate core scoring from variable-cost generation
 
-Every registered user receives the deterministic score, verdict, top issues, a keyword preview, a section check and rule-based suggestions with no language-model call on the core score. Until 31 October 2026, full keyword lists, skill analysis, the five-platform ATS details, bullet analysis, interview probability and the two Anthropic-powered generation features sat behind the paid tier. ClearScan has been free for every registered user since; payments are disabled by a feature flag and the code is retained.
+Every registered user receives the deterministic score, verdict, top issues, a keyword preview, a section check and rule-based suggestions with no language-model call on the core score. The two generation features are kept apart because each call has a real cost and a variable delay.
 
 This split allows:
 
