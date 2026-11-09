@@ -16,7 +16,7 @@ it uses licences with fewer conditions.
 
 | Project | What it is |
 |---|---|
-| [Synthetic resumes](synthetic-resumes/README.md) | 26 invented resumes, each built around one parsing trap, with ground truth and a first benchmark of eight text extractors |
+| [Synthetic resumes](synthetic-resumes/README.md) | 30 invented resumes, each built around one parsing trap, with ground truth and a first benchmark of eight text extractors |
 
 ## Rules for everything in this folder
 

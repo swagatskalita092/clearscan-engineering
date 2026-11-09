@@ -7,7 +7,8 @@
   "PyMuPDF": "2.1",
   "poppler pdftotext": "pdftotext version 24.02.0",
   "poppler pdftotext -layout": "pdftotext version 24.02.0",
-  "Tesseract OCR": "tesseract 5.3.4"
+  "Tesseract OCR": "tesseract 5.3.4",
+  "poppler-data (CMaps, used by poppler)": "0.4.12-1"
  },
  "files": [
   {
@@ -3775,6 +3776,586 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 911,
+     "error": null
+    }
+   },
+   "url_in_file_annotation": null
+  },
+  {
+   "id": "27-german-cv-with-photo",
+   "title": "German-language CV with photo",
+   "producer": "reportlab",
+   "pages": 1,
+   "parsers": {
+    "pypdf": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 945,
+     "error": null
+    },
+    "pdfminer.six": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9048,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9048,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 956,
+     "error": null
+    },
+    "pdfplumber": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 941,
+     "error": null
+    },
+    "pypdfium2": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 962,
+     "error": null
+    },
+    "PyMuPDF": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 942,
+     "error": null
+    },
+    "poppler pdftotext": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9143,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9143,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 951,
+     "error": null
+    },
+    "poppler pdftotext -layout": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1266,
+     "error": null
+    },
+    "Tesseract OCR": {
+     "strict": {
+      "recall": 0.9905,
+      "order": 0.9905,
+      "noise": 0.0095
+     },
+     "lenient": {
+      "recall": 0.9905,
+      "order": 0.9905,
+      "noise": 0.0095
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 958,
+     "error": null
+    }
+   },
+   "url_in_file_annotation": null
+  },
+  {
+   "id": "28-cyrillic-text",
+   "title": "Cyrillic script",
+   "producer": "reportlab",
+   "pages": 1,
+   "parsers": {
+    "pypdf": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 880,
+     "error": null
+    },
+    "pdfminer.six": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.934,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.934,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 891,
+     "error": null
+    },
+    "pdfplumber": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 876,
+     "error": null
+    },
+    "pypdfium2": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 897,
+     "error": null
+    },
+    "PyMuPDF": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 877,
+     "error": null
+    },
+    "poppler pdftotext": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9811,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9811,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 884,
+     "error": null
+    },
+    "poppler pdftotext -layout": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1114,
+     "error": null
+    },
+    "Tesseract OCR": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 892,
+     "error": null
+    }
+   },
+   "url_in_file_annotation": null
+  },
+  {
+   "id": "29-greek-text",
+   "title": "Greek script",
+   "producer": "reportlab",
+   "pages": 1,
+   "parsers": {
+    "pypdf": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 943,
+     "error": null
+    },
+    "pdfminer.six": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9455,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9455,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 954,
+     "error": null
+    },
+    "pdfplumber": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 939,
+     "error": null
+    },
+    "pypdfium2": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 960,
+     "error": null
+    },
+    "PyMuPDF": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 940,
+     "error": null
+    },
+    "poppler pdftotext": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9636,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9636,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 948,
+     "error": null
+    },
+    "poppler pdftotext -layout": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1183,
+     "error": null
+    },
+    "Tesseract OCR": {
+     "strict": {
+      "recall": 0.9,
+      "order": 0.9,
+      "noise": 0.1
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 956,
+     "error": null
+    }
+   },
+   "url_in_file_annotation": null
+  },
+  {
+   "id": "30-japanese-cid-font",
+   "title": "Japanese with a CID font",
+   "producer": "reportlab",
+   "pages": 1,
+   "parsers": {
+    "pypdf": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 427,
+     "error": null
+    },
+    "pdfminer.six": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9585,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9585,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 441,
+     "error": null
+    },
+    "pdfplumber": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 426,
+     "error": null
+    },
+    "pypdfium2": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 446,
+     "error": null
+    },
+    "PyMuPDF": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 427,
+     "error": null
+    },
+    "poppler pdftotext": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9585,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9585,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 436,
+     "error": null
+    },
+    "poppler pdftotext -layout": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 700,
+     "error": null
+    },
+    "Tesseract OCR": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9308,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9308,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 457,
      "error": null
     }
    },

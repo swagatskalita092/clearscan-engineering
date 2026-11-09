@@ -5,6 +5,7 @@
   "trap": "Text written to the file line by line across both columns.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

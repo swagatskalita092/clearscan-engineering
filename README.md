@@ -51,7 +51,7 @@ nothing to do with the constants.
 | [Occupational data](docs/10-occupational-data.md) | What O*NET and ESCO give a scanner, what they cannot, and the licence you take on |
 | [Resume conventions around the world](docs/11-resume-conventions-around-the-world.md) | How resumes and CVs differ by country, and what that does to a parser |
 | [ATS myths and the evidence](docs/12-ats-myths-and-evidence.md) | Common claims about ATS software, the public evidence for each, and how strong it is |
-| [Synthetic resumes and a parser benchmark](research/synthetic-resumes/README.md) | 26 invented resumes built around parsing traps, with ground truth and first results |
+| [Synthetic resumes and a parser benchmark](research/synthetic-resumes/README.md) | 30 invented resumes built around parsing traps, with ground truth and first results |
 
 ## <img src="assets/icons/alert.svg" width="26" height="26" align="middle">&nbsp; Incidents
 

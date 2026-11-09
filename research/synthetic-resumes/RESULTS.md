@@ -1,6 +1,6 @@
 # Parser benchmark: first results
 
-*How well do common open-source PDF text extractors read the 26 synthetic resumes in this folder? Numbers below are generated from [results.json](benchmark/results.json) by [make_report.py](benchmark/make_report.py), not typed by hand.*
+*How well do common open-source PDF text extractors read the 30 synthetic resumes in this folder? Numbers below are generated from [results.json](benchmark/results.json) by [make_report.py](benchmark/make_report.py), not typed by hand.*
 
 Run on 9 November 2026. Every extractor ran with default settings. None of them is a commercial applicant tracking system, so these numbers describe text extraction only.
 
@@ -16,6 +16,7 @@ Run on 9 November 2026. Every extractor ran with default settings. None of them 
 | poppler pdftotext | pdftotext version 24.02.0 |
 | poppler pdftotext -layout | pdftotext version 24.02.0 |
 | Tesseract OCR | tesseract 5.3.4 |
+| poppler-data (CMaps, used by poppler) | 0.4.12-1 |
 
 ## What is measured
 
@@ -32,13 +33,13 @@ Reading order for multi-column layouts is a choice: the ground truth reads a who
 
 | Extractor | Recall (strict) | Recall (lenient) | Order | Noise |
 |---|---|---|---|---|
-| pypdf | 0.96 | 0.96 | 0.91 | 0.01 |
-| pdfminer.six | 0.95 | 0.96 | 0.85 | 0.03 |
-| pdfplumber | 0.91 | 0.92 | 0.83 | 0.04 |
-| pypdfium2 | 0.96 | 0.96 | 0.91 | 0.01 |
-| PyMuPDF | 0.95 | 0.96 | 0.91 | 0.02 |
-| poppler pdftotext | 0.96 | 0.96 | 0.87 | 0.01 |
-| poppler pdftotext -layout | 0.96 | 0.96 | 0.87 | 0.01 |
+| pypdf | 0.96 | 0.96 | 0.92 | 0.01 |
+| pdfminer.six | 0.96 | 0.96 | 0.86 | 0.02 |
+| pdfplumber | 0.93 | 0.93 | 0.86 | 0.04 |
+| pypdfium2 | 0.96 | 0.96 | 0.93 | 0.01 |
+| PyMuPDF | 0.96 | 0.96 | 0.92 | 0.02 |
+| poppler pdftotext | 0.96 | 0.96 | 0.88 | 0.01 |
+| poppler pdftotext -layout | 0.96 | 0.96 | 0.89 | 0.01 |
 | Tesseract OCR | 0.99 | 0.99 | 0.98 | 0.02 |
 
 The averages hide the story, because most files are easy and a few traps are severe. Use the per-resume table below.
@@ -73,6 +74,10 @@ The averages hide the story, because most files are easy and a few traps are sev
 | 24-latex-single-column-unicode-map | 1.00 / 1.00 | 1.00 / 0.95 | 0.24 / 0.24 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 0.95 | 1.00 / 1.00 | 1.00 / 1.00 |
 | 25-two-columns-written-row-by-row | 1.00 / 0.65 | 1.00 / 0.72 | 1.00 / 0.65 | 1.00 / 0.65 | 1.00 / 0.65 | 1.00 / 0.74 | 1.00 / 0.65 | 1.00 / 0.96 |
 | 26-sidebar-written-row-by-row | 1.00 / 0.78 | 1.00 / 0.93 | 1.00 / 0.78 | 1.00 / 0.78 | 1.00 / 0.78 | 1.00 / 0.82 | 1.00 / 0.78 | 1.00 / 0.96 |
+| 27-german-cv-with-photo | 1.00 / 1.00 | 1.00 / 0.90 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 0.91 | 1.00 / 1.00 | 0.99 / 0.99 |
+| 28-cyrillic-text | 1.00 / 1.00 | 1.00 / 0.93 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 0.98 | 1.00 / 1.00 | 1.00 / 1.00 |
+| 29-greek-text | 1.00 / 1.00 | 1.00 / 0.95 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 0.96 | 1.00 / 1.00 | 0.90 / 0.90 |
+| 30-japanese-cid-font | 1.00 / 1.00 | 1.00 / 0.96 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 1.00 | 1.00 / 0.96 | 1.00 / 1.00 | 1.00 / 0.93 |
 
 ## What the numbers show
 
@@ -95,6 +100,11 @@ The averages hide the story, because most files are easy and a few traps are sev
 
 **The producer matters.** The LaTeX file built with the default fonts (`22`) loses ligature letters for every text extractor (recall 0.96), because the fonts in that build are bitmap Type 3 fonts with no text mapping. The same text with an embedded Type 1 font and a Unicode map (`24`) scores 1.00 on pypdf, but pdfplumber with default settings reads it at 0.24, because it joins words that the typesetter separated with narrow spaces. Changing pdfplumber's tolerance would change that number. This is a result about default settings, and a reminder that tuning matters.
 
+**Other scripts and second-language headings are not the problem.** On `27` to `30` (a German CV with a photo, then Russian, Greek and Japanese text) every text extractor reads every word (recall 1.00). Two details matter in practice:
+
+- Poppler needs its separate `poppler-data` package to read the Japanese file, which uses an unembedded CID font. In an earlier run on the same machine without that package, both poppler modes returned recall 0.00 on `30` and no error. With it installed they score 1.00. The version is listed in the table above. A silent empty result is the dangerous part.
+- OCR needs to be told the language. It was given the right language pack for each file here, which a real pipeline would have to guess. Even then, Greek scores 0.90 strict and 1.00 lenient, because the OCR returns the micro sign (U+00B5) where the text has the Greek letter mu (U+03BC), so words containing mu fail an exact comparison. Unicode compatibility normalisation fixes it.
+
 **Contact details mostly survive.** The email address and phone number appeared intact in the extracted text for every text-layer resume and every extractor except pdfplumber on `23` and `24`, where it joined words and the phone number lost its spaces (contact score 0.50).
 
 ## Limits of this benchmark
@@ -103,7 +113,7 @@ The averages hide the story, because most files are easy and a few traps are sev
 - Most generated files write text in reading order, which favours file-order extractors. Resumes `12`, `25` and `26` show the opposite, but the real mix of producers is unknown.
 - Recall and order are measured on words, not on sections or fields. They say nothing about whether a system would assign a job title to the right field.
 - These are open-source libraries on default settings. Commercial applicant tracking systems use their own parsers, and nothing here predicts what any of them does.
-- One run, one machine, one persona structure, English text with a little accented text. No statistical claims are made.
+- One run, one machine, one resume structure, mostly English text, plus one German, one Russian, one Greek and one Japanese file. Scripts that need text shaping, such as Arabic, Devanagari and Thai, are not covered because the generator cannot draw them. No statistical claims are made.
 - Two traps depend on the tool that produced the file (the LaTeX installation and the word processor). The PDFs are committed so results can be reproduced, but rebuilding them elsewhere may differ.
 
 ## Reproduce
@@ -115,4 +125,4 @@ python benchmark/run_benchmark.py
 python benchmark/make_report.py
 ```
 
-Tesseract and poppler (`pdftotext`) must be installed separately. LibreOffice and a LaTeX installation are needed only to rebuild resumes `20` to `24`.
+Tesseract with the `deu`, `rus`, `ell` and `jpn` language packs, and poppler (`pdftotext`) with `poppler-data`, must be installed separately. LibreOffice and a LaTeX installation are needed only to rebuild resumes `20` to `24`.

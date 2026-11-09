@@ -5,6 +5,7 @@
   "trap": "A picture at the top of a two-column layout.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

@@ -5,6 +5,7 @@
   "trap": "Rows of dots used as a visual tab.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

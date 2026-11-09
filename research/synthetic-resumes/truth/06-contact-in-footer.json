@@ -5,6 +5,7 @@
   "trap": "Contact details placed away from the top of the page.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

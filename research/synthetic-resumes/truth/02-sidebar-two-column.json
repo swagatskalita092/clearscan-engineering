@@ -5,6 +5,7 @@
   "trap": "Reading order across a shaded sidebar and a main column.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

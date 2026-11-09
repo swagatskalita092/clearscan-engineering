@@ -20,6 +20,8 @@ DEJAVU = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
 DEJAVU_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
 pdfmetrics.registerFont(TTFont("DejaVu", DEJAVU))
 pdfmetrics.registerFont(TTFont("DejaVu-Bold", DEJAVU_B))
+from reportlab.pdfbase.cidfonts import UnicodeCIDFont  # noqa: E402
+pdfmetrics.registerFont(UnicodeCIDFont("HeiseiKakuGo-W5"))
 
 LIGS = (("ffi", "ﬃ"), ("fi", "ﬁ"), ("fl", "ﬂ"))
 

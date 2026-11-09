@@ -5,6 +5,7 @@
   "trap": "Bitmap Type 3 fonts with no text mapping: ligature letters are lost (depends on the TeX Live installation).",
   "producer": "pdflatex",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

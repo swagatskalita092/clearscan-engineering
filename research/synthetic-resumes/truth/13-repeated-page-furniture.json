@@ -5,6 +5,7 @@
   "trap": "Text that repeats on every page and is not content.",
   "producer": "reportlab",
   "pages": 2,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

@@ -18,7 +18,10 @@ from importlib import metadata
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-TOKEN = re.compile(r"\w+", re.UNICODE)
+CJK = "\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff"
+# Each Japanese or Chinese character is one token, because those scripts have
+# no spaces between words. Everything else is split on letters and digits.
+TOKEN = re.compile(f"[{CJK}]|[^\\W{CJK}]+", re.UNICODE)
 
 
 # ------------------------------------------------------------------ parsers
@@ -60,7 +63,7 @@ def p_poppler_layout(path):
                           capture_output=True, text=True, check=True).stdout
 
 
-def p_ocr(path):
+def p_ocr(path, lang="eng"):
     import pypdfium2 as pdfium
     out = []
     pdf = pdfium.PdfDocument(str(path))
@@ -69,7 +72,8 @@ def p_ocr(path):
         with tempfile.TemporaryDirectory() as d:
             f = Path(d) / "p.png"
             img.save(f)
-            res = subprocess.run(["tesseract", str(f), "-", "-l", "eng"],
+            res = subprocess.run(["tesseract", str(f), "-", "-l",
+                                  lang if lang == "eng" else f"{lang}+eng"],
                                  capture_output=True, text=True)
             out.append(res.stdout)
     return "\n".join(out)
@@ -103,6 +107,10 @@ def tool_versions():
     pop = subprocess.run(["pdftotext", "-v"], capture_output=True, text=True)
     v["poppler pdftotext"] = v["poppler pdftotext -layout"] = (
         (pop.stderr or pop.stdout).strip().splitlines()[0])
+    pd = subprocess.run(["dpkg-query", "-W", "-f=${Version}", "poppler-data"],
+                        capture_output=True, text=True)
+    if pd.returncode == 0:
+        v["poppler-data (CMaps, used by poppler)"] = pd.stdout.strip()
     tes = subprocess.run(["tesseract", "--version"], capture_output=True,
                          text=True)
     v["Tesseract OCR"] = (tes.stdout or tes.stderr).strip().splitlines()[0]
@@ -178,7 +186,8 @@ def main():
                        if t["link_targets"] else None))
         for name, _, fn in PARSERS:
             try:
-                text = fn(path)
+                text = (fn(path, t.get("ocr_lang", "eng"))
+                        if fn is p_ocr else fn(path))
                 err = None
             except Exception as e:  # a parser crash is a result too
                 text, err = "", str(e)[:120]

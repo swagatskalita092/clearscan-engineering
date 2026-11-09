@@ -1,0 +1,40 @@
+{
+  "id": "30-japanese-cid-font",
+  "file": "resumes/30-japanese-cid-font.pdf",
+  "title": "Japanese with a CID font",
+  "trap": "Japanese text in an unembedded CID font, with no spaces between words.",
+  "producer": "reportlab",
+  "pages": 1,
+  "ocr_lang": "jpn",
+  "reading_order": [
+    "佐藤 花子",
+    "オペレーションアナリスト",
+    "桜ヶ丘 | hanako.sato@example.com | +00 555 010 7799 | LinkedIn",
+    "概要",
+    "地域の物流会社で配送計画と在庫精度の改善に6年間取り組んだオペレーションアナリスト。",
+    "職務経歴",
+    "シニアアナリスト",
+    "2022年 - 現在",
+    "北港ロジスティクス株式会社",
+    "配送遅延を追跡する週次ダッシュボードを構築し、遅延を削減",
+    "4拠点の倉庫で棚卸方法を標準化し、財務報告を改善",
+    "同僚8名を指導し、チームの業務手順を文書化",
+    "アナリスト",
+    "2019年 - 2022年",
+    "リンデン商事株式会社",
+    "財務部門向けの月次購買レポートを自動化",
+    "仕入先の請求書を照合し、差異を解消",
+    "学歴",
+    "経営情報学 学士",
+    "2015年 - 2019年",
+    "桜ヶ丘大学",
+    "スキル",
+    "SQL、 Python、 Excel、 需要予測、 業務プロセスの整理、 データ検証、 ドキュメント作成、",
+    "スケジュール管理、 関係者との調整"
+  ],
+  "contact_checks": {
+    "email": "hanako.sato@example.com",
+    "phone": "+00 555 010 7799"
+  },
+  "link_targets": []
+}

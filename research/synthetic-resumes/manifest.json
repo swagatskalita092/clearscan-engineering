@@ -180,5 +180,33 @@
     "trap": "Text written to the file line by line across sidebar and main column.",
     "producer": "reportlab",
     "pages": 1
+  },
+  {
+    "id": "27-german-cv-with-photo",
+    "title": "German-language CV with photo",
+    "trap": "Second-language headings, umlauts, month/year dates and a portrait.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "28-cyrillic-text",
+    "title": "Cyrillic script",
+    "trap": "A resume written entirely in Russian.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "29-greek-text",
+    "title": "Greek script",
+    "trap": "A resume written entirely in Greek.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "30-japanese-cid-font",
+    "title": "Japanese with a CID font",
+    "trap": "Japanese text in an unembedded CID font, with no spaces between words.",
+    "producer": "reportlab",
+    "pages": 1
   }
 ]

@@ -5,6 +5,7 @@
   "trap": "Sections written to the file bottom-up; the page looks normal.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

@@ -81,9 +81,10 @@ and where each falls short.
 Before you trust a parser on a wider audience, build a small, fully synthetic
 set that covers the patterns above. A starting point covering layout and
 character traps, with ground truth, is in
-[Synthetic resumes](../research/synthetic-resumes/README.md). It does not yet
-cover date conventions, second-language headings or non-Latin scripts. The
-patterns to cover:
+[Synthetic resumes](../research/synthetic-resumes/README.md). It includes a
+German-language CV and Russian, Greek and Japanese resumes, but does not yet
+cover date conventions or scripts that need text shaping, such as Arabic and
+Devanagari. The patterns to cover:
 
 1. A two-column layout with dates on the left.
 2. A photo or logo in the header.

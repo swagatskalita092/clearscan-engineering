@@ -5,6 +5,7 @@
   "trap": "Reading order across two text columns of the same width.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

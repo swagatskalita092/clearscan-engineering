@@ -5,6 +5,7 @@
   "trap": "The address lives in a link annotation, not in the page text.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

@@ -5,6 +5,7 @@
   "trap": "Running text that wraps from one column to the next (Type 1 font, Unicode map).",
   "producer": "pdflatex",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

@@ -5,6 +5,7 @@
   "trap": "Letters stored as a base letter plus a combining mark.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Renée Ødegård",
     "Clinical Coordinator",

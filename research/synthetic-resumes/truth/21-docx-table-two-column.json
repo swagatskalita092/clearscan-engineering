@@ -5,6 +5,7 @@
   "trap": "Two columns made with a borderless table.",
   "producer": "python-docx + LibreOffice",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

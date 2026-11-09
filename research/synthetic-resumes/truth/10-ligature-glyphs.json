@@ -5,6 +5,7 @@
   "trap": "Letters such as fi and fl stored as single ligature characters.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

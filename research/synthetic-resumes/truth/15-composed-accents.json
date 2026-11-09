@@ -5,6 +5,7 @@
   "trap": "Control for 14: the same text with single-character accents.",
   "producer": "reportlab",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Renée Ødegård",
     "Clinical Coordinator",

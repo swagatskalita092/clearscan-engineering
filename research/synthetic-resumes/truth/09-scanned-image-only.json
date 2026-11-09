@@ -5,6 +5,7 @@
   "trap": "A page that is only a picture of text.",
   "producer": "reportlab (raster)",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

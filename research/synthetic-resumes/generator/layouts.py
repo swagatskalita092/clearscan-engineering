@@ -1,7 +1,7 @@
 """One function per layout. Each returns an engine.R with ops and truth."""
 from reportlab.pdfbase import pdfmetrics
 from engine import R, W, H, text_png, photo_png
-from content import P1, P2, contact_line
+from content import P1, P2, contact_line, DEFAULT_HEADINGS
 
 M = 50  # page margin
 
@@ -105,6 +105,8 @@ def header(r, p, o):
         r.truth.append(p["name"])
     else:
         r.put(p["name"], cx, r.y, size=22, bold=True, align="c")
+    if o.get("photo"):
+        r.image(photo_png(), W - M - 62, r.y - 62, 62, 78)
     r.y -= 20
     r.put(p["title"], cx, r.y, size=12, align="c")
     r.y -= 15
@@ -121,21 +123,22 @@ def body_single(r, p, o, width=W - 2 * M, x=M):
     size = o.get("size", 10)
     hsz = size + 1.5
     leading = o.get("leading", 13.5)
+    hd = p.get("headings", DEFAULT_HEADINGS)
     r.group(1)
-    heading(r, "Summary", x, width, hs_style, hsz)
+    heading(r, hd["summary"], x, width, hs_style, hsz)
     r.wrapped(p["summary"], x, width, size=size, leading=leading)
     r.group(2)
-    heading(r, "Experience", x, width, hs_style, hsz)
+    heading(r, hd["experience"], x, width, hs_style, hsz)
     experience(r, p, x, width, o, size, leading)
     r.group(3)
-    heading(r, "Education", x, width, hs_style, hsz)
+    heading(r, hd["education"], x, width, hs_style, hsz)
     education(r, p, x, width, size, leading)
     r.group(4)
-    heading(r, "Skills", x, width, hs_style, hsz)
+    heading(r, hd["skills"], x, width, hs_style, hsz)
     if o.get("grid"):
         skills_grid(r, p, x, width, size)
     else:
-        r.wrapped(", ".join(p["skills"]), x, width, size=size, leading=leading)
+        r.wrapped(p.get("skill_sep", ", ").join(p["skills"]), x, width, size=size, leading=leading)
 
 
 def skills_grid(r, p, x, width, size):

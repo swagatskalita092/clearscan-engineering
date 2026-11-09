@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 D = json.loads((ROOT / "benchmark" / "results.json").read_text(encoding="utf-8"))
-PARSERS = list(D["versions"])
+PARSERS = [k for k in D["versions"] if "poppler-data" not in k]
 TEXT = [p for p in PARSERS if p != "Tesseract OCR"]
 FILES = {f["id"][:2]: f for f in D["files"]}
 
@@ -39,8 +39,8 @@ w("Run on 9 November 2026. Every extractor ran with default settings. "
 w("## Tools and versions\n")
 w("| Extractor | Version |")
 w("|---|---|")
-for p in PARSERS:
-    w(f"| {p} | {D['versions'][p]} |")
+for p, v in D["versions"].items():
+    w(f"| {p} | {v} |")
 w("")
 
 w("## What is measured\n")
@@ -165,6 +165,26 @@ w("**The producer matters.** The LaTeX file built with the default fonts "
 bad = [(FILES[k]["id"], p) for k in FILES if k != "09" for p in PARSERS
        if FILES[k]["parsers"][p]["contact_strict"] < 1]
 assert all(p == "pdfplumber" for _, p in bad), bad
+ne = [m_ for m_ in ("27", "28", "29", "30")]
+assert all(m(k, p_, "recall") == 1.0 for k in ne for p_ in TEXT), "scripts"
+w("**Other scripts and second-language headings are not the problem.** On "
+  "`27` to `30` (a German CV with a photo, then Russian, Greek and Japanese "
+  "text) every text extractor reads every word (recall 1.00). Two details "
+  "matter in practice:\n")
+w("- Poppler needs its separate `poppler-data` package to read the Japanese "
+  "file, which uses an unembedded CID font. In an earlier run on the same "
+  "machine without that package, both poppler modes returned recall 0.00 on "
+  "`30` and no error. With it installed they score "
+  f"{fmt(m('30','poppler pdftotext','recall'))}. The version is listed in the "
+  "table above. A silent empty result is the dangerous part.")
+w("- OCR needs to be told the language. It was given the right language pack "
+  "for each file here, which a real pipeline would have to guess. Even then, "
+  f"Greek scores {fmt(m('29','Tesseract OCR','recall'))} strict and "
+  f"{fmt(m('29','Tesseract OCR','recall','lenient'))} lenient, because the "
+  "OCR returns the micro sign (U+00B5) where the text has the Greek letter "
+  "mu (U+03BC), so words containing mu fail an exact comparison. Unicode "
+  "compatibility normalisation fixes it.\n")
+
 w("**Contact details mostly survive.** The email address and phone number "
   "appeared intact in the extracted text for every text-layer resume and "
   "every extractor except pdfplumber on "
@@ -183,8 +203,10 @@ w("- Recall and order are measured on words, not on sections or fields. "
 w("- These are open-source libraries on default settings. Commercial "
   "applicant tracking systems use their own parsers, and nothing here "
   "predicts what any of them does.")
-w("- One run, one machine, one persona structure, English text with a "
-  "little accented text. No statistical claims are made.")
+w("- One run, one machine, one resume structure, mostly English text, plus "
+  "one German, one Russian, one Greek and one Japanese file. Scripts that "
+  "need text shaping, such as Arabic, Devanagari and Thai, are not covered "
+  "because the generator cannot draw them. No statistical claims are made.")
 w("- Two traps depend on the tool that produced the file (the LaTeX "
   "installation and the word processor). The PDFs are committed so results "
   "can be reproduced, but rebuilding them elsewhere may differ.\n")
@@ -193,7 +215,8 @@ w("## Reproduce\n")
 w("```text\npip install -r benchmark/requirements.txt\n"
   "python generator/build.py\npython benchmark/run_benchmark.py\n"
   "python benchmark/make_report.py\n```\n")
-w("Tesseract and poppler (`pdftotext`) must be installed separately. "
+w("Tesseract with the `deu`, `rus`, `ell` and `jpn` language packs, and "
+  "poppler (`pdftotext`) with `poppler-data`, must be installed separately. "
   "LibreOffice and a LaTeX installation are needed only to rebuild resumes "
   "`20` to `24`.\n")
 

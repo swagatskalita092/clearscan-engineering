@@ -18,7 +18,7 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 
-from content import P1, P2, contact_line  # noqa: E402
+from content import P1, P2, P3, P4, P5, P6, contact_line  # noqa: E402
 import layouts as L  # noqa: E402
 
 OUT = ROOT / "resumes"
@@ -96,6 +96,22 @@ spec("25-two-columns-written-row-by-row", "Two body columns written row by row",
 spec("26-sidebar-written-row-by-row", "Sidebar layout written row by row",
      "Text written to the file line by line across sidebar and main column.",
      "reportlab", lambda: L.sidebar(rows=True))
+
+
+spec("27-german-cv-with-photo", "German-language CV with photo",
+     "Second-language headings, umlauts, month/year dates and a portrait.",
+     "reportlab", lambda: L.single(p=P3, photo=True), persona=P3)
+spec("28-cyrillic-text", "Cyrillic script",
+     "A resume written entirely in Russian.", "reportlab",
+     lambda: L.single(p=P4, font="DejaVu", bold="DejaVu-Bold"), persona=P4)
+spec("29-greek-text", "Greek script",
+     "A resume written entirely in Greek.", "reportlab",
+     lambda: L.single(p=P5, font="DejaVu", bold="DejaVu-Bold"), persona=P5)
+spec("30-japanese-cid-font", "Japanese with a CID font",
+     "Japanese text in an unembedded CID font, with no spaces between words.",
+     "reportlab",
+     lambda: L.single(p=P6, font="HeiseiKakuGo-W5", bold="HeiseiKakuGo-W5"),
+     persona=P6)
 
 
 def build_reportlab(s):
@@ -313,6 +329,7 @@ def main():
         em, ph = persona["email"], persona["phone"]
         data = dict(id=id_, file=f"resumes/{id_}.pdf", title=title, trap=trap,
                     producer=producer, pages=page_count(path),
+                    ocr_lang=persona.get("ocr_lang", "eng"),
                     reading_order=truth,
                     contact_checks={"email": em, "phone": ph},
                     link_targets=list(links))

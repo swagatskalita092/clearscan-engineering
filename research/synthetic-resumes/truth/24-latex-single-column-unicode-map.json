@@ -5,6 +5,7 @@
   "trap": "Control for 22: the same text with an embedded Type 1 font and a Unicode map.",
   "producer": "pdflatex",
   "pages": 1,
+  "ocr_lang": "eng",
   "reading_order": [
     "Jordan Ellis",
     "Operations Analyst",

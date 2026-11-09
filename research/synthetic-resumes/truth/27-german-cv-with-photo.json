@@ -1,0 +1,41 @@
+{
+  "id": "27-german-cv-with-photo",
+  "file": "resumes/27-german-cv-with-photo.pdf",
+  "title": "German-language CV with photo",
+  "trap": "Second-language headings, umlauts, month/year dates and a portrait.",
+  "producer": "reportlab",
+  "pages": 1,
+  "ocr_lang": "deu",
+  "reading_order": [
+    "Mara Lindner",
+    "Operations Analystin",
+    "Flussburg | mara.lindner@example.com | +00 555 010 7788 | LinkedIn",
+    "Profil",
+    "Operations Analystin mit sechs Jahren Erfahrung in der Verbesserung von Lieferplänen und",
+    "Bestandsgenauigkeit bei regionalen Distributoren.",
+    "Berufserfahrung",
+    "Senior Analystin",
+    "03/2022 - heute",
+    "Nordhafen Logistik GmbH",
+    "Wöchentliches Dashboard zur Verfolgung von Lieferverzögerungen aufgebaut",
+    "Bestandszählungen in vier Lagern vereinheitlicht und das Finanzreporting verbessert",
+    "Acht Kolleginnen und Kollegen geschult und den Teamablauf dokumentiert",
+    "Analystin",
+    "09/2019 - 02/2022",
+    "Lindenau Handels AG",
+    "Monatliche Einkaufsberichte für die Finanzabteilung automatisiert",
+    "Lieferantenrechnungen abgeglichen und Abweichungen geklärt",
+    "Ausbildung",
+    "B.Sc. Wirtschaftsinformatik",
+    "10/2015 - 09/2019",
+    "Universität Flussburg",
+    "Kenntnisse",
+    "SQL, Python, Excel, Prognose, Prozessmodellierung, Datenprüfung, Dokumentation, Terminplanung,",
+    "Stakeholder-Kommunikation"
+  ],
+  "contact_checks": {
+    "email": "mara.lindner@example.com",
+    "phone": "+00 555 010 7788"
+  },
+  "link_targets": []
+}

@@ -1,9 +1,9 @@
 # Synthetic resumes
 
-*26 invented resumes, each built around one thing that makes text
+*30 invented resumes, each built around one thing that makes text
 extraction hard, with ground truth and a first benchmark.*
 
-![All 26 resumes as thumbnails](resumes/overview.png)
+![All 30 resumes as thumbnails](resumes/overview.png)
 
 ## Why this exists
 
@@ -68,8 +68,13 @@ The data is CC0 1.0 ([LICENSE-DATA](../LICENSE-DATA)). The code is MIT
 | `24-latex-single-column-unicode-map` | Control for 22: the same text with an embedded Type 1 font and a Unicode map. | pdflatex | 1 |
 | `25-two-columns-written-row-by-row` | Text written to the file line by line across both columns. | reportlab | 1 |
 | `26-sidebar-written-row-by-row` | Text written to the file line by line across sidebar and main column. | reportlab | 1 |
+| `27-german-cv-with-photo` | Second-language headings, umlauts, month/year dates and a portrait. | reportlab | 1 |
+| `28-cyrillic-text` | A resume written entirely in Russian. | reportlab | 1 |
+| `29-greek-text` | A resume written entirely in Greek. | reportlab | 1 |
+| `30-japanese-cid-font` | Japanese text in an unembedded CID font, with no spaces between words. | reportlab | 1 |
 
 Resumes `14` and `15` use a second invented person with accented characters.
+Resumes `27` to `30` are written in German, Russian, Greek and Japanese.
 Resume `09` is a picture of text with no text layer.
 
 ## Use it
@@ -117,8 +122,9 @@ path and returns text.
 - It does not measure any commercial applicant tracking system.
 - It scores words and their order, not whether a field such as a job title
   would be assigned correctly.
-- It is English text with a little accented text. Other scripts and
-  right-to-left languages are not covered yet.
+- It is mostly English, plus one German, Russian, Greek and Japanese file.
+  Scripts that need text shaping, such as Arabic, Devanagari and Thai, and
+  right-to-left layouts are not covered yet.
 
 PyMuPDF is licensed AGPL-3.0, which differs from the rest of the toolchain.
 It is used here only to read files and can be removed from the benchmark
