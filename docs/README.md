@@ -6,7 +6,7 @@
 
 | If you are | Read, in this order |
 |---|---|
-| New to ATS software | [The problem](01-the-problem.md), [Anti-gaming](04-anti-gaming.md), [Resume conventions around the world](11-resume-conventions-around-the-world.md) |
+| New to ATS software | [The problem](01-the-problem.md), [ATS myths and the evidence](12-ats-myths-and-evidence.md), [Resume conventions around the world](11-resume-conventions-around-the-world.md) |
 | Building your own resume scanner | [Build your own](../build-your-own/README.md), [Architecture](02-architecture.md), [Scoring philosophy](03-scoring-philosophy.md), [Occupational data](10-occupational-data.md) |
 | Interested in the failures | [Incidents](../incidents/), starting with [The disabled webhook](../incidents/01-the-disabled-webhook.md) |
 | Using generated text in a product | [AI that doesn't invent facts](05-ai-that-doesnt-invent.md), then [Throwing away the AI verifier](../incidents/04-throwing-away-the-ai-verifier.md) |
@@ -27,5 +27,6 @@
 | [09 Engineering decisions](09-engineering-decisions.md) | Four durable product decisions |
 | [10 Occupational data](10-occupational-data.md) | O*NET and ESCO: what they give, what they cannot, and the licence |
 | [11 Resume conventions around the world](11-resume-conventions-around-the-world.md) | How resumes differ by country, and what that does to a parser |
+| [12 ATS myths and the evidence](12-ats-myths-and-evidence.md) | Six common claims, the public evidence for each, and how strong it is |
 
 Figures that change over time live only in [STATUS.md](../STATUS.md).

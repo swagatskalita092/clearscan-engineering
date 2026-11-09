@@ -49,6 +49,7 @@ nothing to do with the constants.
 | [AI that doesn't invent facts](docs/05-ai-that-doesnt-invent.md) | Five layers, and why the most important one is not AI |
 | [Occupational data](docs/10-occupational-data.md) | What O*NET and ESCO give a scanner, what they cannot, and the licence you take on |
 | [Resume conventions around the world](docs/11-resume-conventions-around-the-world.md) | How resumes and CVs differ by country, and what that does to a parser |
+| [ATS myths and the evidence](docs/12-ats-myths-and-evidence.md) | Common claims about ATS software, the public evidence for each, and how strong it is |
 
 ## <img src="assets/icons/alert.svg" width="26" height="26" align="middle">&nbsp; Incidents
 

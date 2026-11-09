@@ -8,6 +8,7 @@ All notable changes to this documentation repository are recorded here.
 - Added a documentation index with reading paths, a citation file, and a proposal form.
 - Extended the documentation check to enforce the house rules automatically.
 - Removed an empty placeholder folder and replaced "one person" wording with neutral wording.
+- Added "ATS myths and the evidence": six common claims graded against public sources, with a short note on the EU AI Act dates.
 
 ## [2026-11-05]
 
