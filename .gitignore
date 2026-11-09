@@ -17,3 +17,6 @@ Desktop.ini
 *.log
 *.tmp
 *.bak
+
+# Built website (see scripts/build_site.py)
+_site/

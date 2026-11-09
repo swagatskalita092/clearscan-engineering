@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>$title</title>
+<meta name="description" content="$description">
+<meta name="color-scheme" content="light dark">
+<link rel="icon" href="${root}_static/logo.png">
+<link rel="canonical" href="$canonical">
+<meta property="og:type" content="website">
+<meta property="og:title" content="$title">
+<meta property="og:description" content="$description">
+<meta property="og:image" content="$og_image">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="${root}_static/site.css">
+<noscript><style>.sidebar{display:block!important}.menu-btn,.search{display:none}</style></noscript>
+</head>
+<body data-root="$root">
+<a class="skip" href="#main">Skip to content</a>
+<header class="topbar">
+  <button class="menu-btn" type="button" aria-expanded="false" aria-controls="sidebar">Menu</button>
+  <a class="brand" href="${root}index.html"><img src="${root}_static/logo.png" alt="" width="28" height="28"><span>ClearScan <b>engineering notes</b></span></a>
+  <div class="search">
+    <input id="q" type="search" placeholder="Search the notes (press /)" autocomplete="off" spellcheck="false" aria-label="Search the notes" role="combobox" aria-expanded="false" aria-controls="results" aria-autocomplete="list">
+    <ul id="results" role="listbox" aria-label="Search results" hidden></ul>
+  </div>
+  <a class="gh" href="https://github.com/swagatskalita092/clearscan-engineering">GitHub</a>
+</header>
+<div class="layout">
+  <nav id="sidebar" class="sidebar" aria-label="All pages">$nav</nav>
+  <main id="main" class="content">
+$content
+    <p class="edit">$edit</p>
+  </main>
+</div>
+<footer class="site-foot">
+  <p>The writing is licensed CC BY 4.0. Research data is CC0 and research code is MIT. This is not the ClearScan source code, and ClearScan is not open source software. <a href="https://clearscan.fyi">clearscan.fyi</a></p>
+  <p>This site makes no requests to other domains and sets no cookies.</p>
+</footer>
+<script src="${root}_static/site.js" defer></script>
+</body>
+</html>
