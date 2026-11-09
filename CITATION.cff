@@ -1,17 +1,14 @@
 cff-version: 1.2.0
 message: "If these notes help your work, please cite them as below."
 title: "ClearScan Engineering: field notes from building and running a production ATS resume scanner"
-abstract: "Engineering notes on building an ATS resume scanner: architecture, scoring philosophy, anti-gaming principles, AI that does not invent facts, occupational data, and real production incidents. Includes a set of 26 synthetic resumes with ground truth and a first benchmark of PDF text extractors."
+abstract: "Engineering notes on building an ATS resume scanner: architecture, scoring philosophy, anti-gaming principles, AI that does not invent facts, occupational data, and real production incidents. Includes a set of 26 synthetic resumes with ground truth and a first benchmark of PDF text extractors. The notes are CC BY 4.0; the research folder is CC0 (data) and MIT (code)."
 authors:
   - family-names: Kalita
     given-names: Swagat Subhash
 repository-code: "https://github.com/swagatskalita092/clearscan-engineering"
 url: "https://clearscan.fyi"
-license:
-  - CC-BY-4.0
-  - CC0-1.0
-  - MIT
-version: 1.0.0
+license: CC-BY-4.0
+version: 1.0.1
 date-released: 2026-11-09
 keywords:
   - ATS
