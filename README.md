@@ -17,7 +17,7 @@
 ![Netlify](https://img.shields.io/badge/Netlify-111827?style=flat-square&logo=netlify&logoColor=34D8C0)
 ![Railway](https://img.shields.io/badge/Railway-111827?style=flat-square&logo=railway&logoColor=white)
 
-[Website](https://clearscan.fyi) &nbsp;|&nbsp; [Docs](docs/) &nbsp;|&nbsp; [Incidents](incidents/) &nbsp;|&nbsp; [Build your own](build-your-own/README.md) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
+[Website](https://clearscan.fyi) &nbsp;|&nbsp; [Read online](https://swagatskalita092.github.io/clearscan-engineering/) &nbsp;|&nbsp; [Docs](docs/) &nbsp;|&nbsp; [Incidents](incidents/) &nbsp;|&nbsp; [Build your own](build-your-own/README.md) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
 
 </div>
 

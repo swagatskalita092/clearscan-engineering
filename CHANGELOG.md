@@ -13,7 +13,7 @@ All notable changes to this documentation repository are recorded here.
 - Added three diagrams (system overview, a scan end to end, and the layers around generated text) to the architecture and generated-text pages.
 - Added "ATS myths and the evidence": six common claims graded against public sources, with a short note on the EU AI Act dates.
 - Extended the parser benchmark from eight to eleven readers: pypdf in layout mode, PyMuPDF4LLM and MarkItDown, which are what people use to feed documents to language models. New findings include layout analysis helping on columns, markdown converters inventing tables, and one converter running OCR on its own.
-- Added a searchable website built from the Markdown by scripts/build_site.py and published with GitHub Pages. It has full-text search across every section, works in light and dark mode, and makes no requests to other domains. The documentation check workflow now also builds the site, so a broken link fails a pull request.
+- Added a searchable website built from the Markdown by scripts/build_site.py and published with GitHub Pages. It has full-text search across every section, works in light and dark mode, and makes no requests to other domains. It is live at swagatskalita092.github.io/clearscan-engineering. The documentation check workflow now also builds the site, so a broken link fails a pull request.
 
 ## [2026-11-05]
 
