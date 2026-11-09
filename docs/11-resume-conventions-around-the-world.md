@@ -79,7 +79,11 @@ and where each falls short.
 ## A test set worth building
 
 Before you trust a parser on a wider audience, build a small, fully synthetic
-set that covers the patterns above:
+set that covers the patterns above. A starting point covering layout and
+character traps, with ground truth, is in
+[Synthetic resumes](../research/synthetic-resumes/README.md). It does not yet
+cover date conventions, second-language headings or non-Latin scripts. The
+patterns to cover:
 
 1. A two-column layout with dates on the left.
 2. A photo or logo in the header.

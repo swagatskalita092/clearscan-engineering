@@ -53,6 +53,10 @@ By contributing, you agree that your contribution is licensed under
 [CC BY 4.0](LICENSE), like the rest of the writing here. Your name stays in the
 git history.
 
+Contributions to the `research/` folder follow that folder's licences instead:
+CC0 1.0 for data and MIT for code, as described in
+[research/README.md](research/README.md).
+
 ## Conduct and security
 
 Please read the [code of conduct](CODE_OF_CONDUCT.md). Report security

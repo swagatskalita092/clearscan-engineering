@@ -1,0 +1,40 @@
+{
+  "id": "05-experience-date-column",
+  "file": "resumes/05-experience-date-column.pdf",
+  "title": "Dates in a left table column",
+  "trap": "Table where dates sit beside the description.",
+  "producer": "reportlab",
+  "pages": 1,
+  "reading_order": [
+    "Jordan Ellis",
+    "Operations Analyst",
+    "Riverton | jordan.ellis@example.com | +00 555 010 2030 | LinkedIn",
+    "Summary",
+    "Operations analyst with six years of experience improving delivery schedules and inventory accuracy for",
+    "regional distributors.",
+    "Experience",
+    "2022 - Present",
+    "Senior Analyst",
+    "Harbor and Pine Logistics",
+    "Built a weekly dashboard that reduced late deliveries by tracking route delays",
+    "Standardised stock counts across four warehouses and improved financial reporting",
+    "Trained eight colleagues and documented the team workflow",
+    "2019 - 2022",
+    "Analyst",
+    "Linden Supply Company",
+    "Automated monthly purchase reports for the finance office",
+    "Reconciled supplier invoices and resolved discrepancies",
+    "Education",
+    "B.Sc. Business Information Systems",
+    "2015 - 2019",
+    "Riverton University",
+    "Skills",
+    "SQL, Python, Excel, Forecasting, Process mapping, Data validation, Documentation, Scheduling, Stakeholder",
+    "communication"
+  ],
+  "contact_checks": {
+    "email": "jordan.ellis@example.com",
+    "phone": "+00 555 010 2030"
+  },
+  "link_targets": []
+}

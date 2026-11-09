@@ -73,7 +73,11 @@ engineering side.
   recurring limitations. *Peer reviewed*, but it is a review of research
   prototypes, not of commercial products.
 - Public benchmarks of commercial parsers are mostly published by the
-  vendors that sell them, and were not found in independent form.
+  vendors that sell them, and were not found in independent form. This
+  repository now publishes a first open benchmark of extraction libraries on
+  invented resumes, in [Synthetic resumes](../research/synthetic-resumes/README.md).
+  It measures text extraction only and says nothing about any vendor's
+  system. *Measured here, not independently reviewed.*
 
 **Reading these together.** Parsing is an imperfect step and research
 systems struggle with varied layouts. That makes it sensible to prefer simple
@@ -148,7 +152,9 @@ an employer uses to rank applicants.
 ## What would settle these questions
 
 - A public, labelled dataset of resumes and postings with human judgements.
-- Parser benchmarks run by someone with no product to sell.
+- Parser benchmarks run by someone with no product to sell. The
+  [synthetic resume set](../research/synthetic-resumes/README.md) is a first,
+  small step for open-source libraries.
 - Audit studies that submit matched resumes to real systems with the
   employer's consent.
 

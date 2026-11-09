@@ -10,6 +10,7 @@
 | Building your own resume scanner | [Build your own](../build-your-own/README.md), [Architecture](02-architecture.md), [Scoring philosophy](03-scoring-philosophy.md), [Occupational data](10-occupational-data.md) |
 | Interested in the failures | [Incidents](../incidents/), starting with [The disabled webhook](../incidents/01-the-disabled-webhook.md) |
 | Using generated text in a product | [AI that doesn't invent facts](05-ai-that-doesnt-invent.md), then [Throwing away the AI verifier](../incidents/04-throwing-away-the-ai-verifier.md) |
+| Testing a resume parser | [Synthetic resumes](../research/synthetic-resumes/README.md), then [Resume conventions around the world](11-resume-conventions-around-the-world.md) |
 | Evaluating how much to trust a scanner | [Scoring philosophy](03-scoring-philosophy.md), especially its honest limits |
 
 ## All pages

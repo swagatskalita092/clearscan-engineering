@@ -1,0 +1,40 @@
+{
+  "id": "14-decomposed-accents",
+  "file": "resumes/14-decomposed-accents.pdf",
+  "title": "Accented names, decomposed form",
+  "trap": "Letters stored as a base letter plus a combining mark.",
+  "producer": "reportlab",
+  "pages": 1,
+  "reading_order": [
+    "Renée Ødegård",
+    "Clinical Coordinator",
+    "Málaga | renee.odegard@example.com | +00 555 010 4455 | LinkedIn",
+    "Summary",
+    "Clinical coordinator with seven years of experience organising patient schedules and records in",
+    "busy outpatient departments.",
+    "Experience",
+    "Clinical Coordinator",
+    "2021 - Present",
+    "Clínica Sønderby",
+    "Coordinated appointments for five departments and reduced waiting times",
+    "Introduced a shared checklist for patient records and audits",
+    "Mentored four new coordinators",
+    "Administrator",
+    "2018 - 2021",
+    "Hôpital Saint-Étienne",
+    "Maintained patient records in line with local regulations",
+    "Prepared monthly reports for the department head",
+    "Education",
+    "B.A. Health Administration",
+    "2014 - 2018",
+    "Universidad de Málaga",
+    "Skills",
+    "Scheduling, Patient records, Quality audits, Mentoring, Documentation, Triage support, Spanish,",
+    "Norwegian, English"
+  ],
+  "contact_checks": {
+    "email": "renee.odegard@example.com",
+    "phone": "+00 555 010 4455"
+  },
+  "link_targets": []
+}

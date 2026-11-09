@@ -1,0 +1,184 @@
+[
+  {
+    "id": "01-baseline-single-column",
+    "title": "Baseline, single column",
+    "trap": "Control: a plain one-column resume.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "02-sidebar-two-column",
+    "title": "Left sidebar plus main column",
+    "trap": "Reading order across a shaded sidebar and a main column.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "03-two-equal-columns",
+    "title": "Two equal body columns",
+    "trap": "Reading order across two text columns of the same width.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "04-skills-grid-table",
+    "title": "Skills in a bordered grid",
+    "trap": "Short items laid out in table cells.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "05-experience-date-column",
+    "title": "Dates in a left table column",
+    "trap": "Table where dates sit beside the description.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "06-contact-in-footer",
+    "title": "Contact details in the page footer",
+    "trap": "Contact details placed away from the top of the page.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "07-icon-glyphs-contact",
+    "title": "Icon glyphs before contact items",
+    "trap": "Symbol characters used as icons.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "08-symbol-bullets",
+    "title": "Arrow glyph bullets",
+    "trap": "Non-standard bullet characters.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "09-scanned-image-only",
+    "title": "Scanned page, no text layer",
+    "trap": "A page that is only a picture of text.",
+    "producer": "reportlab (raster)",
+    "pages": 1
+  },
+  {
+    "id": "10-ligature-glyphs",
+    "title": "Ligature characters in words",
+    "trap": "Letters such as fi and fl stored as single ligature characters.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "11-letter-spaced-headings",
+    "title": "Letter-spaced section headings",
+    "trap": "Headings drawn with wide character spacing.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "12-drawing-order-reversed",
+    "title": "Drawing order differs from reading order",
+    "trap": "Sections written to the file bottom-up; the page looks normal.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "13-repeated-page-furniture",
+    "title": "Two pages with repeated header and footer",
+    "trap": "Text that repeats on every page and is not content.",
+    "producer": "reportlab",
+    "pages": 2
+  },
+  {
+    "id": "14-decomposed-accents",
+    "title": "Accented names, decomposed form",
+    "trap": "Letters stored as a base letter plus a combining mark.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "15-composed-accents",
+    "title": "Accented names, composed form",
+    "trap": "Control for 14: the same text with single-character accents.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "16-link-label-only",
+    "title": "Link visible as a label only",
+    "trap": "The address lives in a link annotation, not in the page text.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "17-name-as-image",
+    "title": "Name rendered as an image",
+    "trap": "A name that exists only as pixels.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "18-dot-leader-dates",
+    "title": "Dot leaders between title and dates",
+    "trap": "Rows of dots used as a visual tab.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "19-photo-and-sidebar",
+    "title": "Portrait photo above a sidebar",
+    "trap": "A picture at the top of a two-column layout.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "20-docx-baseline",
+    "title": "Word-processor export, single column",
+    "trap": "Control from a different producer.",
+    "producer": "python-docx + LibreOffice",
+    "pages": 1
+  },
+  {
+    "id": "21-docx-table-two-column",
+    "title": "Word-processor export, table columns",
+    "trap": "Two columns made with a borderless table.",
+    "producer": "python-docx + LibreOffice",
+    "pages": 1
+  },
+  {
+    "id": "22-latex-single-column",
+    "title": "LaTeX export, default fonts",
+    "trap": "Bitmap Type 3 fonts with no text mapping: ligature letters are lost (depends on the TeX Live installation).",
+    "producer": "pdflatex",
+    "pages": 1
+  },
+  {
+    "id": "23-latex-two-column",
+    "title": "LaTeX export, text flows in two columns",
+    "trap": "Running text that wraps from one column to the next (Type 1 font, Unicode map).",
+    "producer": "pdflatex",
+    "pages": 1
+  },
+  {
+    "id": "24-latex-single-column-unicode-map",
+    "title": "LaTeX export, Type 1 font and Unicode map",
+    "trap": "Control for 22: the same text with an embedded Type 1 font and a Unicode map.",
+    "producer": "pdflatex",
+    "pages": 1
+  },
+  {
+    "id": "25-two-columns-written-row-by-row",
+    "title": "Two body columns written row by row",
+    "trap": "Text written to the file line by line across both columns.",
+    "producer": "reportlab",
+    "pages": 1
+  },
+  {
+    "id": "26-sidebar-written-row-by-row",
+    "title": "Sidebar layout written row by row",
+    "trap": "Text written to the file line by line across sidebar and main column.",
+    "producer": "reportlab",
+    "pages": 1
+  }
+]
