@@ -12,6 +12,7 @@ All notable changes to this documentation repository are recorded here.
 - Extended the research folder to 30 resumes: a German-language CV with a photo, and Russian, Greek and Japanese resumes. The benchmark now records the poppler-data dependency and how OCR language is handled.
 - Added three diagrams (system overview, a scan end to end, and the layers around generated text) to the architecture and generated-text pages.
 - Added "ATS myths and the evidence": six common claims graded against public sources, with a short note on the EU AI Act dates.
+- Extended the parser benchmark from eight to eleven readers: pypdf in layout mode, PyMuPDF4LLM and MarkItDown, which are what people use to feed documents to language models. New findings include layout analysis helping on columns, markdown converters inventing tables, and one converter running OCR on its own.
 
 ## [2026-11-05]
 

@@ -7,6 +7,9 @@
   "PyMuPDF": "2.1",
   "poppler pdftotext": "pdftotext version 24.02.0",
   "poppler pdftotext -layout": "pdftotext version 24.02.0",
+  "pypdf (layout mode)": "6.17.0",
+  "PyMuPDF4LLM": "2.1",
+  "MarkItDown": "0.1.7",
   "Tesseract OCR": "tesseract 5.3.4",
   "poppler-data (CMaps, used by poppler)": "0.4.12-1"
  },
@@ -134,6 +137,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1233,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1304,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 979,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 902,
      "error": null
     },
     "Tesseract OCR": {
@@ -281,6 +335,57 @@
      "chars": 1349,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.7807,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.7807,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1541,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9649,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9649,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 985,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9298,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9298,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 899,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -424,6 +529,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1352,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.646,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.646,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1477,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 982,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.7168,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.7168,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 909,
      "error": null
     },
     "Tesseract OCR": {
@@ -571,6 +727,57 @@
      "chars": 1389,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1495,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1003,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9292,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9292,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 902,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -714,6 +921,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1244,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1317,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1008,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9823,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9823,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 902,
      "error": null
     },
     "Tesseract OCR": {
@@ -861,6 +1119,57 @@
      "chars": 1237,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9115,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9115,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1347,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9115,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9115,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 981,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.8584,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.8584,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 903,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -1004,6 +1313,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1180,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1251,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 977,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 911,
      "error": null
     },
     "Tesseract OCR": {
@@ -1151,6 +1511,57 @@
      "chars": 1233,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1304,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 984,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 902,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -1294,6 +1705,57 @@
      "contact_lenient": 0.0,
      "url_in_text": null,
      "chars": 1,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 0.0,
+      "order": 0.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 0.0,
+      "order": 0.0,
+      "noise": 0.0
+     },
+     "contact_strict": 0.0,
+     "contact_lenient": 0.0,
+     "url_in_text": null,
+     "chars": 0,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 0.8761,
+      "order": 0.8761,
+      "noise": 0.0481
+     },
+     "lenient": {
+      "recall": 0.8761,
+      "order": 0.8761,
+      "noise": 0.0481
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 934,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 0.0,
+      "order": 0.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 0.0,
+      "order": 0.0,
+      "noise": 0.0
+     },
+     "contact_strict": 0.0,
+     "contact_lenient": 0.0,
+     "url_in_text": null,
+     "chars": 0,
      "error": null
     },
     "Tesseract OCR": {
@@ -1441,6 +1903,57 @@
      "chars": 1164,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 0.9646,
+      "order": 0.9646,
+      "noise": 0.0354
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1227,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 966,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 0.9646,
+      "order": 0.9115,
+      "noise": 0.0354
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 897,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -1584,6 +2097,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1233,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1112,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 0.9646,
+      "order": 0.9646,
+      "noise": 0.227
+     },
+     "lenient": {
+      "recall": 0.9646,
+      "order": 0.9646,
+      "noise": 0.227
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1033,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 0.9646,
+      "order": 0.9115,
+      "noise": 0.227
+     },
+     "lenient": {
+      "recall": 0.9646,
+      "order": 0.9115,
+      "noise": 0.227
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 930,
      "error": null
     },
     "Tesseract OCR": {
@@ -1731,6 +2295,57 @@
      "chars": 1233,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1304,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 984,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 902,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -1874,6 +2489,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1527,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.096
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.096
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1474,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.096
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.096
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1058,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9646,
+      "noise": 0.096
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9646,
+      "noise": 0.096
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 995,
      "error": null
     },
     "Tesseract OCR": {
@@ -2021,6 +2687,57 @@
      "chars": 1106,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 0.9327,
+      "order": 0.9327,
+      "noise": 0.1261
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1159,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 0.9327,
+      "order": 0.9327,
+      "noise": 0.1261
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 918,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 0.9327,
+      "order": 0.8365,
+      "noise": 0.1261
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9038,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 840,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 0.9327,
@@ -2164,6 +2881,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1098,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1150,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9135,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9135,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 897,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9038,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9038,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 833,
      "error": null
     },
     "Tesseract OCR": {
@@ -2311,6 +3079,57 @@
      "chars": 1233,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": false,
+     "chars": 1304,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0174
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0174
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": false,
+     "chars": 991,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": false,
+     "chars": 902,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -2454,6 +3273,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1179,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 0.9823,
+      "order": 0.9823,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 0.9823,
+      "order": 0.9823,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1251,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0661
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0661
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1036,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 0.9823,
+      "order": 0.9292,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 0.9823,
+      "order": 0.9292,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 889,
      "error": null
     },
     "Tesseract OCR": {
@@ -2601,6 +3471,57 @@
      "chars": 1445,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1404,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1240,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9646,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9646,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1163,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -2744,6 +3665,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1360,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.7018,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.7018,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1584,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.8509,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.8509,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 982,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.6667,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.6667,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 899,
      "error": null
     },
     "Tesseract OCR": {
@@ -2891,6 +3863,57 @@
      "chars": 1142,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1197,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 0.9292,
+      "order": 0.9292,
+      "noise": 0.1322
+     },
+     "lenient": {
+      "recall": 0.9292,
+      "order": 0.9292,
+      "noise": 0.1322
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1021,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9646,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9646,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 911,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -3034,6 +4057,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1333,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.646,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.646,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1489,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.6903,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.6903,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 990,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.7522,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.7522,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 915,
      "error": null
     },
     "Tesseract OCR": {
@@ -3181,6 +4255,57 @@
      "chars": 1256,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 0.8584,
+      "order": 0.8584,
+      "noise": 0.2362
+     },
+     "lenient": {
+      "recall": 0.8584,
+      "order": 0.8584,
+      "noise": 0.2362
+     },
+     "contact_strict": 0.5,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 11190,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 0.9646,
+      "order": 0.9469,
+      "noise": 0.0992
+     },
+     "lenient": {
+      "recall": 0.9646,
+      "order": 0.9469,
+      "noise": 0.0992
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 940,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 0.9646,
+      "order": 0.9646,
+      "noise": 0.1805
+     },
+     "lenient": {
+      "recall": 0.9646,
+      "order": 0.9646,
+      "noise": 0.1805
+     },
+     "contact_strict": 0.5,
+     "contact_lenient": 0.5,
+     "url_in_text": null,
+     "chars": 2130,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -3324,6 +4449,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1440,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 0.9823,
+      "order": 0.708,
+      "noise": 0.0089
+     },
+     "lenient": {
+      "recall": 0.9823,
+      "order": 0.708,
+      "noise": 0.0089
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1777,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.7611,
+      "noise": 0.0504
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.7611,
+      "noise": 0.0504
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 985,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 0.6991,
+      "order": 0.4867,
+      "noise": 0.1124
+     },
+     "lenient": {
+      "recall": 0.6991,
+      "order": 0.4867,
+      "noise": 0.1124
+     },
+     "contact_strict": 0.5,
+     "contact_lenient": 0.5,
+     "url_in_text": null,
+     "chars": 2382,
      "error": null
     },
     "Tesseract OCR": {
@@ -3471,6 +4647,57 @@
      "chars": 1327,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1535,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0504
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0504
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1015,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 904,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -3614,6 +4841,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1352,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.646,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.646,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1477,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9469,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 982,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.7168,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.7168,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 909,
      "error": null
     },
     "Tesseract OCR": {
@@ -3761,6 +5039,57 @@
      "chars": 1349,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.7807,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.7807,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1541,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9649,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9649,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 985,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9298,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9298,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 899,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -3904,6 +5233,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 1266,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1332,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9905,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9905,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1045,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9048,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9048,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 955,
      "error": null
     },
     "Tesseract OCR": {
@@ -4051,6 +5431,57 @@
      "chars": 1114,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1158,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 962,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.934,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.934,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 890,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 1.0,
@@ -4196,6 +5627,57 @@
      "chars": 1183,
      "error": null
     },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1222,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 0.9909,
+      "order": 0.9909,
+      "noise": 0.018
+     },
+     "lenient": {
+      "recall": 0.9909,
+      "order": 0.9909,
+      "noise": 0.018
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 1039,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9455,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9455,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 953,
+     "error": null
+    },
     "Tesseract OCR": {
      "strict": {
       "recall": 0.9,
@@ -4339,6 +5821,57 @@
      "contact_lenient": 1.0,
      "url_in_text": null,
      "chars": 700,
+     "error": null
+    },
+    "pypdf (layout mode)": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 623,
+     "error": null
+    },
+    "PyMuPDF4LLM": {
+     "strict": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0269
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 1.0,
+      "noise": 0.0269
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 488,
+     "error": null
+    },
+    "MarkItDown": {
+     "strict": {
+      "recall": 1.0,
+      "order": 0.9585,
+      "noise": 0.0
+     },
+     "lenient": {
+      "recall": 1.0,
+      "order": 0.9585,
+      "noise": 0.0
+     },
+     "contact_strict": 1.0,
+     "contact_lenient": 1.0,
+     "url_in_text": null,
+     "chars": 440,
      "error": null
     },
     "Tesseract OCR": {

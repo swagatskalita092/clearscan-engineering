@@ -13,8 +13,9 @@ published. This set fills that gap with invented content. Every file carries
 a ground-truth list of the words a person reads, in reading order, so any
 extractor can be scored the same way.
 
-The first results are in [RESULTS.md](RESULTS.md). Read the limits section
-before quoting a number.
+The results are in [RESULTS.md](RESULTS.md): eleven readers, from plain text
+extractors to layout-aware converters and OCR. Read the limits section before
+quoting a number.
 
 ## Everything is invented
 
@@ -36,7 +37,7 @@ The data is CC0 1.0 ([LICENSE-DATA](../LICENSE-DATA)). The code is MIT
 | `manifest.json` | Index of the set |
 | `generator/` | Python that builds the reportlab, word-processor and LaTeX files |
 | `benchmark/` | The runner, the report writer, pinned requirements and the raw results |
-| `RESULTS.md` | The first benchmark, generated from the raw results |
+| `RESULTS.md` | The benchmark report, generated from the raw results |
 
 ## The resumes
 
@@ -126,6 +127,7 @@ path and returns text.
   Scripts that need text shaping, such as Arabic, Devanagari and Thai, and
   right-to-left layouts are not covered yet.
 
-PyMuPDF is licensed AGPL-3.0, which differs from the rest of the toolchain.
-It is used here only to read files and can be removed from the benchmark
-without affecting the other extractors.
+PyMuPDF is licensed AGPL-3.0, which differs from the rest of the toolchain,
+and PyMuPDF4LLM comes from the same vendor, so check its licence terms before
+redistributing it. Both are used here only to read files and can be removed
+from the benchmark without affecting the other extractors.

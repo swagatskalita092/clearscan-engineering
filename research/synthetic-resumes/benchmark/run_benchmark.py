@@ -53,6 +53,30 @@ def p_pymupdf(path):
         return "\n".join(pg.get_text() for pg in doc)
 
 
+def p_pypdf_layout(path):
+    from pypdf import PdfReader
+    return "\n".join(
+        (pg.extract_text(extraction_mode="layout") or "")
+        for pg in PdfReader(str(path)).pages)
+
+
+def p_pymupdf4llm(path):
+    import contextlib
+    import io
+    import pymupdf4llm
+    # The library prints progress messages. They are not part of the output.
+    with contextlib.redirect_stdout(io.StringIO()):
+        md = pymupdf4llm.to_markdown(str(path))
+    # Markdown line breaks inside table cells come out as <br>. That is
+    # markup, not a word, so it becomes a newline before scoring.
+    return md.replace("<br>", "\n")
+
+
+def p_markitdown(path):
+    from markitdown import MarkItDown
+    return MarkItDown().convert(str(path)).text_content
+
+
 def p_poppler(path):
     return subprocess.run(["pdftotext", str(path), "-"], capture_output=True,
                           text=True, check=True).stdout
@@ -87,6 +111,9 @@ PARSERS = [
     ("PyMuPDF", "pymupdf", p_pymupdf),
     ("poppler pdftotext", None, p_poppler),
     ("poppler pdftotext -layout", None, p_poppler_layout),
+    ("pypdf (layout mode)", "pypdf", p_pypdf_layout),
+    ("PyMuPDF4LLM", "pymupdf4llm", p_pymupdf4llm),
+    ("MarkItDown", "markitdown", p_markitdown),
     ("Tesseract OCR", None, p_ocr),
 ]
 
