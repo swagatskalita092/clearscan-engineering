@@ -7,6 +7,7 @@
 ![License](https://img.shields.io/badge/license-CC%20BY%204.0-EA580C?style=for-the-badge&labelColor=111827)
 ![ClearScan](https://img.shields.io/badge/ClearScan-free-16A34A?style=for-the-badge&labelColor=111827)
 ![Product source](https://img.shields.io/badge/product%20source-private-4B5563?style=for-the-badge&labelColor=111827)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24084739-1682D4?style=for-the-badge&labelColor=111827)](https://doi.org/10.5281/zenodo.24084739)
 
 ![React](https://img.shields.io/badge/React-111827?style=flat-square&logo=react&logoColor=61DAFB)
 ![Vite](https://img.shields.io/badge/Vite-111827?style=flat-square&logo=vite&logoColor=A78BFA)
