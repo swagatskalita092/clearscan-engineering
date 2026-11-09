@@ -1,0 +1,43 @@
+name: Propose a page or section
+description: Suggest a new page, section or worked example for these notes
+title: "Proposal: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for offering to extend these notes. Replies can take days or weeks. For anything larger than a correction, please open this form before writing a pull request.
+  - type: input
+    id: title
+    attributes:
+      label: Working title
+    validations:
+      required: true
+  - type: textarea
+    id: summary
+    attributes:
+      label: What would it cover?
+      description: Two or three sentences.
+    validations:
+      required: true
+  - type: textarea
+    id: audience
+    attributes:
+      label: Who is it for, and what will they be able to do afterwards?
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Sources or first-hand experience
+      description: Links, or a short description of what you built or measured.
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmation
+      options:
+        - label: It contains no scoring weights, thresholds, prompts or other internal constants, and no instructions for gaming a scanner.
+          required: true
+        - label: It uses only invented or properly credited examples, never real resumes or personal data.
+          required: true
+        - label: I agree that my contribution is licensed under CC BY 4.0.
+          required: true

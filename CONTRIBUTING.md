@@ -30,7 +30,7 @@ source code is private and is not available.
 
 ## What to expect
 
-This repository is maintained by one person alongside other commitments.
+This repository is maintained independently, alongside other commitments.
 Replies can take days or weeks. Nobody is owed a response, and nothing is lost
 by waiting.
 
@@ -43,7 +43,9 @@ by waiting.
   use durable wording.
 - State limits honestly. If something is unmeasured, say so.
 - Run `python scripts/check_docs.py` before you open the pull request. The same
-  check runs automatically on every pull request.
+  check runs automatically on every pull request. It looks for broken links,
+  secrets, em dashes, money amounts and sales wording, and first person, and it
+  keeps the scoring and anti-gaming pages free of figures.
 
 ## Licensing
 

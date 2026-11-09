@@ -2,6 +2,13 @@
 
 All notable changes to this documentation repository are recorded here.
 
+## [2026-11-09]
+
+- Rewrote the engineering decisions page in the house style, with limits and a closing section.
+- Added a documentation index with reading paths, a citation file, and a proposal form.
+- Extended the documentation check to enforce the house rules automatically.
+- Removed an empty placeholder folder and replaced "one person" wording with neutral wording.
+
 ## [2026-11-05]
 
 - Added: occupational data (O*NET and ESCO, limits and licence) and resume conventions around the world.

@@ -11,7 +11,7 @@ public issue and do not post details publicly until it has been fixed.
 Please include enough detail to reproduce the problem. Do not access, change or
 keep other people's data while investigating.
 
-This is maintained by one person. Responses will be as quick as that allows.
+This is maintained independently. Responses will be as quick as that allows.
 
 ## Sensitive information in this repository
 
