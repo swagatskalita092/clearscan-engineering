@@ -12,6 +12,8 @@ The core score never calls a model. This page covers only the text features.
 
 ## The layers
 
+<p align="center"><img src="../assets/diagrams/ai-text-layers.svg" alt="Five layers around generated text: a strict source boundary, a model with a way to say no, limits enforced in code, deterministic checks against the resume, and honest wording to the user, ending with the user deciding." width="70%"></p>
+
 **1. A strict source boundary.** The resume is the only source of facts about
 the candidate. The job posting is the only source of facts about the role.
 A requirement in the posting is never treated as something the candidate has

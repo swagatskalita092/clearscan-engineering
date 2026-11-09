@@ -7,6 +7,11 @@
 A browser app, an API, and a managed database with authentication. A few
 third-party services sit around them, each doing one job.
 
+<p align="center"><img src="../assets/diagrams/architecture-overview.svg" alt="System overview: a user reaches a browser app, which calls an API and signs in directly with the authentication service. The API reads and writes the database and calls a language model provider and an email provider." width="100%"></p>
+
+<details>
+<summary>Text version with the full technology list</summary>
+
 ```mermaid
 %%{init: {'theme':'base','themeVariables':{'primaryColor':'#FFEDD5','primaryTextColor':'#111827','primaryBorderColor':'#EA580C','lineColor':'#EA580C','fontFamily':'Plus Jakarta Sans, Inter, Segoe UI, sans-serif'}}}%%
 flowchart LR
@@ -36,6 +41,8 @@ flowchart LR
     API --> Resend
 ```
 
+</details>
+
 ## What lives where
 
 - **Browser app.** Presentation, routing, the job tracker's local storage, and
@@ -63,6 +70,8 @@ The user submits a resume and a job posting. The API parses the document,
 runs the deterministic scoring engine, and returns the result. No language
 model is involved. For a signed-in user the result is also saved to their
 history.
+
+<p align="center"><img src="../assets/diagrams/scan-sequence.svg" alt="Sequence of a scan: the user uploads a resume and a job posting, the browser app submits both to the API, the API parses, scores without a language model and writes explanations, returns the result, and saves it to history for signed-in users." width="100%"></p>
 
 ## What this shape costs
 

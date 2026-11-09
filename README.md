@@ -113,7 +113,7 @@ of these pages stay true.
 
 The writing in this repository is licensed under
 [CC BY 4.0](LICENSE): reuse and build on it freely, with credit. The license
-covers these documents and the banner and icons in `assets/`.
+covers these documents and the banner, icons and diagrams in `assets/`.
 It does not cover the ClearScan software, name or logo, including the
 files in `assets/brand/`.
 

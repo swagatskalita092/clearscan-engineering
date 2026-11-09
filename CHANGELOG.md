@@ -10,6 +10,7 @@ All notable changes to this documentation repository are recorded here.
 - Removed an empty placeholder folder and replaced "one person" wording with neutral wording.
 - Added a research folder with 26 invented resumes built around parsing traps, ground truth for each, and a first benchmark of eight text extractors. Data is CC0 and code is MIT.
 - Extended the research folder to 30 resumes: a German-language CV with a photo, and Russian, Greek and Japanese resumes. The benchmark now records the poppler-data dependency and how OCR language is handled.
+- Added three diagrams (system overview, a scan end to end, and the layers around generated text) to the architecture and generated-text pages.
 - Added "ATS myths and the evidence": six common claims graded against public sources, with a short note on the EU AI Act dates.
 
 ## [2026-11-05]
