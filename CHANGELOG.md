@@ -2,6 +2,11 @@
 
 All notable changes to this documentation repository are recorded here.
 
+## [2026-11-10]
+
+- Release v1.1.0. It adds the eleven-reader parser benchmark, the three diagrams, the ATS myths page and the searchable website to the archived version.
+- The README badge and the citation file now use the DOI that always points to the latest version. Each release also has its own version DOI on Zenodo.
+
 ## [2026-11-09]
 
 - Rewrote the engineering decisions page in the house style, with limits and a closing section.
