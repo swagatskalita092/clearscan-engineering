@@ -4,7 +4,9 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-10]
 
+- Added a short screen recording of the searchable site to the top of the README, with a description for readers who cannot see it.
 - Release v1.1.0. It adds the eleven-reader parser benchmark, the three diagrams, the ATS myths page and the searchable website to the archived version.
+- Extended the research folder to 33 resumes: Arabic (right to left), Hindi (Devanagari) and Thai, made through a word processor because they need text shaping. The benchmark found that most text extractors lose most words in Hindi and Thai files from this producer, and that the cause is how the producer stores shaped text. Added a test of that explanation, a scoring rule that keeps combining marks inside words, and the producer versions to the record.
 - The README badge and the citation file now use the DOI that always points to the latest version. Each release also has its own version DOI on Zenodo.
 
 ## [2026-11-09]

@@ -208,5 +208,26 @@
     "trap": "Japanese text in an unembedded CID font, with no spaces between words.",
     "producer": "reportlab",
     "pages": 1
+  },
+  {
+    "id": "31-arabic-right-to-left",
+    "title": "Arabic, right to left",
+    "trap": "Right-to-left Arabic in a word-processor export, with a Latin email address and a phone number inside the right-to-left line.",
+    "producer": "python-docx + LibreOffice",
+    "pages": 1
+  },
+  {
+    "id": "32-devanagari-hindi",
+    "title": "Hindi in Devanagari",
+    "trap": "Devanagari text: vowel signs and conjuncts drawn from several code points, as a font and shaping engine produce them.",
+    "producer": "python-docx + LibreOffice",
+    "pages": 1
+  },
+  {
+    "id": "33-thai-no-spaces",
+    "title": "Thai",
+    "trap": "Thai text: no spaces between words, stacked vowel and tone marks, and years in the Buddhist Era.",
+    "producer": "python-docx + LibreOffice",
+    "pages": 2
   }
 ]

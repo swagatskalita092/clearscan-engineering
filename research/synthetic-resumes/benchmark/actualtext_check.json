@@ -1,0 +1,32 @@
+{
+ "32-devanagari-hindi": {
+  "actualtext_entries": 250,
+  "poppler pdftotext": {
+   "original": 0.9771,
+   "without_actualtext": 0.1374
+  },
+  "PyMuPDF": {
+   "original": 0.9618,
+   "without_actualtext": 0.1374
+  },
+  "pypdf": {
+   "original": 0.1603,
+   "without_actualtext": 0.1603
+  }
+ },
+ "33-thai-no-spaces": {
+  "actualtext_entries": 253,
+  "poppler pdftotext": {
+   "original": 0.9216,
+   "without_actualtext": 0.3529
+  },
+  "PyMuPDF": {
+   "original": 0.7451,
+   "without_actualtext": 0.3529
+  },
+  "pypdf": {
+   "original": 0.3529,
+   "without_actualtext": 0.3529
+  }
+ }
+}

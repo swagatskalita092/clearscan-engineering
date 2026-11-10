@@ -21,7 +21,11 @@ ROOT = Path(__file__).resolve().parent.parent
 CJK = "\u3040-\u30ff\u3400-\u9fff\uf900-\ufaff"
 # Each Japanese or Chinese character is one token, because those scripts have
 # no spaces between words. Everything else is split on letters and digits.
-TOKEN = re.compile(f"[{CJK}]|[^\\W{CJK}]+", re.UNICODE)
+# Combining marks (vowel signs, tone marks, accents) stay inside their word:
+# without that, Thai and Devanagari words would be cut at every mark.
+MARKS = "".join(chr(c) for c in range(0x300, 0x10000)
+                if unicodedata.category(chr(c)) in ("Mn", "Mc", "Me"))
+TOKEN = re.compile(f"[{CJK}]|(?:[^\\W{CJK}]|[{MARKS}])+", re.UNICODE)
 
 
 # ------------------------------------------------------------------ parsers
@@ -141,11 +145,33 @@ def tool_versions():
     tes = subprocess.run(["tesseract", "--version"], capture_output=True,
                          text=True)
     v["Tesseract OCR"] = (tes.stdout or tes.stderr).strip().splitlines()[0]
+    # Producers of the word-processor and LaTeX files. Not readers, but they
+    # decide what the files contain, so the version belongs in the record.
+    for key, cmd in (("LibreOffice (made files 20, 21, 31 to 33)", ["soffice", "--version"]),
+                     ("pdfTeX (made files 22 to 24)", ["pdflatex", "--version"])):
+        try:
+            out = subprocess.run(cmd, capture_output=True, text=True, timeout=60)
+            v[key] = (out.stdout or out.stderr).strip().splitlines()[0]
+        except Exception:
+            v[key] = "not recorded"
     return v
 
 
 # ------------------------------------------------------------------ metrics
-def tokens(s, lenient):
+CID_MARKER = re.compile(r"\(cid:\d+\)")
+
+
+def clean(s):
+    """Removes what some extractors write for glyphs with no Unicode mapping:
+    a literal (cid:N) marker, or a control or direction character."""
+    s = CID_MARKER.sub("", s)
+    return "".join(c for c in s if unicodedata.category(c) not in ("Cc", "Cf")
+                   or c in "\n\r\t")
+
+
+def tokens(s, lenient, cleaned=False):
+    if cleaned:
+        s = clean(s)
     if lenient:
         s = unicodedata.normalize("NFKC", s)
     return TOKEN.findall(s.lower())
@@ -163,9 +189,9 @@ def lcs_len(a, b):
     return prev[-1]
 
 
-def score(truth_lines, extracted, lenient):
+def score(truth_lines, extracted, lenient, cleaned=False):
     truth = tokens(" ".join(truth_lines), lenient)
-    ext = tokens(extracted, lenient)
+    ext = tokens(extracted, lenient, cleaned)
     if not truth:
         return dict(recall=0.0, order=0.0, noise=0.0)
     ct, ce = Counter(truth), Counter(ext)
@@ -185,6 +211,13 @@ def contact(truth_json, extracted, lenient):
             text = re.sub(r"\s+", " ", unicodedata.normalize("NFKC", text))
         hit += v in text
     return hit / len(truth_json["contact_checks"])
+
+
+def email_standalone(truth_json, extracted):
+    """True when the email address starts after whitespace, a bar or the start
+    of a line, so a pattern matcher sees it as a separate item."""
+    em = re.escape(truth_json["contact_checks"]["email"])
+    return bool(re.search(r"(?:^|[\s|])" + em, extracted, re.M))
 
 
 def annotation_urls(path):
@@ -220,10 +253,12 @@ def main():
                 text, err = "", str(e)[:120]
             strict = score(t["reading_order"], text, False)
             lenient = score(t["reading_order"], text, True)
+            cleaned = score(t["reading_order"], text, False, True)
             row["parsers"][name] = dict(
-                strict=strict, lenient=lenient,
+                strict=strict, lenient=lenient, cleaned=cleaned,
                 contact_strict=contact(t, text, False),
                 contact_lenient=contact(t, text, True),
+                email_standalone=email_standalone(t, text),
                 url_in_text=any(u in text for u in t["link_targets"])
                 if t["link_targets"] else None,
                 chars=len(text), error=err)

@@ -6,7 +6,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 D = json.loads((ROOT / "benchmark" / "results.json").read_text(encoding="utf-8"))
-PARSERS = [k for k in D["versions"] if "poppler-data" not in k]
+PARSERS = list(D["files"][0]["parsers"])
 TEXT = [p for p in PARSERS if p != "Tesseract OCR"]
 FILES = {f["id"][:2]: f for f in D["files"]}
 
@@ -32,7 +32,7 @@ w("*How well do common open-source PDF text extractors read the "
   f"{n} synthetic resumes in this folder? Numbers below are generated from "
   "[results.json](benchmark/results.json) by "
   "[make_report.py](benchmark/make_report.py), not typed by hand.*\n")
-w("Run on 9 November 2026. Every extractor ran with default settings. "
+w("Run on 10 November 2026. Every extractor ran with default settings. "
   "None of them is a commercial applicant tracking system, so these numbers "
   "describe text extraction only.\n")
 w("Eleven readers are compared. Seven are plain text extractors "
@@ -43,7 +43,7 @@ w("Eleven readers are compared. Seven are plain text extractors "
   "model. The last is Tesseract OCR, which reads a picture of the page.\n")
 
 w("## Tools and versions\n")
-w("| Extractor | Version |")
+w("| Tool | Version |")
 w("|---|---|")
 for p, v in D["versions"].items():
     w(f"| {p} | {v} |")
@@ -112,6 +112,12 @@ w("**Plain layouts are solved.** On the single-column control "
   "The traps below are where extraction differs.\n")
 
 FILE_ORDER = ["pypdf", "pypdfium2", "PyMuPDF"]
+def mean_over(parser, metric, ids, mode="strict"):
+    return st.mean(FILES[k]["parsers"][parser][mode][metric] for k in ids)
+
+
+FIRST30 = [k for k in FILES if int(k) <= 30]
+BEST_ALL = max((p for p in TEXT), key=lambda p: mean(p, "order"))
 o03 = {p: m("03", p, "order") for p in PARSERS}
 o25 = {p: m("25", p, "order") for p in PARSERS}
 w("**Columns decide reading order, and the winner depends on how the file "
@@ -136,9 +142,12 @@ w("**Layout analysis helps with columns, but it is not a cure.** "
   f"{fmt(o25['PyMuPDF4LLM'])} on `25`, the same on both because it looks at "
   f"where text sits and not at the order it was written, and "
   f"{fmt(m('02','PyMuPDF4LLM','order'))} on the sidebar layout (`02`). "
-  f"Its average order is {fmt(mean('PyMuPDF4LLM','order'))}, the best of "
-  "any text-based reader here "
-  f"(next is {fmt(max(mean(p,'order') for p in TEXT if p != 'PyMuPDF4LLM'))}). "
+  f"Across the first 30 resumes its average order is "
+  f"{fmt(mean_over('PyMuPDF4LLM','order',FIRST30))}, the best of the text "
+  f"readers (next is {fmt(max(mean_over(p,'order',FIRST30) for p in TEXT if p != 'PyMuPDF4LLM'))}). "
+  f"Across all {n} it is {fmt(mean('PyMuPDF4LLM','order'))}, behind "
+  f"{BEST_ALL} at {fmt(mean(BEST_ALL,'order'))}, because of the Hindi and "
+  "Thai files discussed below. "
   "It still fails where the layout is a table: on the Word file whose "
   f"two columns are a table (`21`) it scores {fmt(m('21','PyMuPDF4LLM','order'))}, "
   "and on the LaTeX two-column file (`23`) "
@@ -155,7 +164,8 @@ assert m("03","PyMuPDF4LLM","order") == o25["PyMuPDF4LLM"] or abs(m("03","PyMuPD
 assert m("12","pypdf (layout mode)","order") == 1.0
 assert all(m(k, "MarkItDown", "order") == m(k, "pdfminer.six", "order")
            for k in FILES if k not in ("22", "23"))
-assert mean("PyMuPDF4LLM","order") == max(mean(p,"order") for p in TEXT)
+assert mean_over("PyMuPDF4LLM","order",FIRST30) == max(mean_over(p,"order",FIRST30) for p in TEXT)
+assert BEST_ALL != "PyMuPDF4LLM"
 
 o12 = {p: m("12", p, "order") for p in PARSERS}
 w("**A page that looks right can be written in reverse.** In "
@@ -257,8 +267,9 @@ assert FILES["22"]["parsers"]["MarkItDown"]["contact_strict"] < 1
 
 bad = [(FILES[k]["id"], p) for k in FILES if k != "09" for p in PARSERS
        if FILES[k]["parsers"][p]["contact_strict"] < 1]
-assert sorted(set(p for _, p in bad)) == ["MarkItDown", "pdfplumber",
-                                          "pypdf (layout mode)"], bad
+assert sorted(set(p for _, p in bad)) == ["MarkItDown", "Tesseract OCR",
+                                          "pdfplumber", "pypdf (layout mode)"], bad
+assert sorted(i[:2] for i, p in bad if p == "Tesseract OCR") == ["32"]
 assert sorted(i[:2] for i, p in bad if p == "pdfplumber") == ["23", "24"]
 assert sorted(i[:2] for i, p in bad if p == "MarkItDown") == ["22", "23"]
 assert sorted(i[:2] for i, p in bad if p == "pypdf (layout mode)") == ["22"]
@@ -266,7 +277,7 @@ assert FILES["22"]["parsers"]["pypdf (layout mode)"]["contact_lenient"] == 1
 ne = [m_ for m_ in ("27", "28", "29", "30")]
 short = [(k, p_) for k in ne for p_ in TEXT if m(k, p_, "recall") < 1.0]
 assert short == [("29", "PyMuPDF4LLM")], short
-w("**Other scripts and second-language headings are not the problem.** On "
+w("**Scripts that draw one glyph per letter are not the problem.** On "
   "`27` to `30` (a German CV with a photo, then Russian, Greek and Japanese "
   "text) every text extractor reads every word (recall 1.00), with one "
   "exception: PyMuPDF4LLM split a single Greek word in two on `29` "
@@ -286,16 +297,107 @@ w("- OCR needs to be told the language. It was given the right language pack "
   "mu (U+03BC), so words containing mu fail an exact comparison. Unicode "
   "compatibility normalisation fixes it.\n")
 
+
+AT = json.loads((ROOT / "benchmark" / "actualtext_check.json").read_text(encoding="utf-8"))
+SHAPED_OK = ["poppler pdftotext", "PyMuPDF"]
+ON_ACTUALTEXT = [p for p in TEXT if m("32", p, "recall") < 0.3 and m("33", p, "recall") < 0.5]
+assert sorted(ON_ACTUALTEXT) == sorted(["pypdf", "pdfminer.six", "pdfplumber",
+        "pypdf (layout mode)", "PyMuPDF4LLM", "MarkItDown"]), ON_ACTUALTEXT
+assert all(m("32", p, "recall") > 0.9 for p in SHAPED_OK)
+assert AT["32-devanagari-hindi"]["poppler pdftotext"]["without_actualtext"] < 0.3
+assert AT["32-devanagari-hindi"]["PyMuPDF"]["without_actualtext"] < 0.3
+assert AT["32-devanagari-hindi"]["pypdf"]["original"] == AT["32-devanagari-hindi"]["pypdf"]["without_actualtext"]
+clean_best = max(FILES[k]["parsers"][p]["cleaned"]["recall"] for k in ("32", "33") for p in ON_ACTUALTEXT)
+assert clean_best < 0.5
+def rng(lo, hi):
+    return fmt(lo) if fmt(lo) == fmt(hi) else f"{fmt(lo)} to {fmt(hi)}"
+
+
+lo32 = min(m("32", p, "recall") for p in ON_ACTUALTEXT)
+hi32 = max(m("32", p, "recall") for p in ON_ACTUALTEXT)
+lo33 = min(m("33", p, "recall") for p in ON_ACTUALTEXT)
+hi33 = max(m("33", p, "recall") for p in ON_ACTUALTEXT)
+w("**Scripts that need shaping are the hard case, and readers fail on them "
+  "differently.** `32` (Hindi) and `33` (Thai) were made by LibreOffice, "
+  "which draws vowel signs and conjuncts from several glyphs and records "
+  "the real text of each such cluster in a separate `/ActualText` entry "
+  f"({AT['32-devanagari-hindi']['actualtext_entries']} entries in the Hindi "
+  f"file, {AT['33-thai-no-spaces']['actualtext_entries']} in the Thai file). "
+  f"Poppler reads Hindi at {fmt(m('32','poppler pdftotext','recall'))} and "
+  f"Thai at {fmt(m('33','poppler pdftotext','recall'))}, PyMuPDF at "
+  f"{fmt(m('32','PyMuPDF','recall'))} and {fmt(m('33','PyMuPDF','recall'))}. "
+  "pypdf, pdfminer.six, pdfplumber, pypdf in layout mode, MarkItDown and "
+  f"PyMuPDF4LLM read Hindi at {rng(lo32, hi32)} and Thai at "
+  f"{rng(lo33, hi33)}. For the clusters they cannot map, pypdf writes a "
+  "control character, pdfminer.six and MarkItDown write a literal `(cid:4)` "
+  "marker, and PyMuPDF4LLM writes the Unicode replacement character, in the "
+  "middle of the word. Vowel signs also end up on the wrong letters. "
+  "Removing the control characters and `(cid:N)` markers does not repair "
+  f"the words (best cleaned recall {fmt(clean_best)}), because the letters "
+  "themselves are wrong, not only extra.\n")
+w("To test the cause, `benchmark/check_actualtext.py` copies both files "
+  "with the `/ActualText` entries emptied. Poppler's recall on Hindi falls "
+  f"from {fmt(AT['32-devanagari-hindi']['poppler pdftotext']['original'])} to "
+  f"{fmt(AT['32-devanagari-hindi']['poppler pdftotext']['without_actualtext'])} "
+  "and PyMuPDF's from "
+  f"{fmt(AT['32-devanagari-hindi']['PyMuPDF']['original'])} to "
+  f"{fmt(AT['32-devanagari-hindi']['PyMuPDF']['without_actualtext'])}. "
+  "pypdf, which never used the entries, does not change. Poppler and PyMuPDF "
+  "do well on these two files because they read `/ActualText`; pypdfium2 "
+  "was not tested this way. That describes how one producer stores shaped text. A file from another "
+  "producer may be stored differently, so these numbers do not transfer to "
+  "other word processors.\n")
+w("OCR does not depend on how the text was stored, and reads all three new "
+  f"scripts: Arabic {fmt(m('31','Tesseract OCR','recall'))}, Hindi "
+  f"{fmt(m('32','Tesseract OCR','recall'))} and Thai "
+  f"{fmt(m('33','Tesseract OCR','recall'))} strict "
+  f"({fmt(m('33','Tesseract OCR','recall','lenient'))} lenient for Thai, "
+  "because Unicode normalisation treats a combined vowel character and its "
+  "two-part form as the same letters: the page has the single character "
+  "U+0E33 and OCR returns the two characters U+0E4D U+0E32). On every one "
+  "of the three it is below the best text reader, and far above the text "
+  "readers that fail.\n")
+assert all(m(k, "Tesseract OCR", "recall") < max(m(k, p, "recall") for p in TEXT)
+           for k in ("31", "32", "33"))
+
+ARAB_OK = ["pypdf", "PyMuPDF", "poppler pdftotext", "PyMuPDF4LLM"]
+ARAB_REV = ["pdfminer.six", "pdfplumber", "pypdf (layout mode)", "MarkItDown"]
+assert all(m("31", p, "recall") > 0.9 and m("31", p, "order") > 0.9 for p in ARAB_OK)
+assert all(m("31", p, "recall") < 0.2 for p in ARAB_REV)
+assert m("31", "pypdfium2", "recall") > 0.9 and m("31", "pypdfium2", "order") < 0.5
+glued = sorted(p for p in PARSERS if not FILES["31"]["parsers"][p]["email_standalone"])
+assert glued == sorted(["pypdf", "PyMuPDF", "poppler pdftotext",
+                        "poppler pdftotext -layout", "PyMuPDF4LLM"]), glued
+assert all(FILES["31"]["parsers"][p]["contact_strict"] == 1 for p in PARSERS)
+w("**Right-to-left text separates logical order from visual order.** In "
+  "`31` (Arabic, with an English email address and a phone number inside "
+  "the right-to-left line) pypdf, PyMuPDF, poppler and PyMuPDF4LLM keep the "
+  f"words whole and in order (recall {fmt(min(m('31',p,'recall') for p in ARAB_OK))} "
+  f"to {fmt(max(m('31',p,'recall') for p in ARAB_OK))}). pypdfium2 keeps the "
+  "words but returns each line in visual order, so its recall is "
+  f"{fmt(m('31','pypdfium2','recall'))} and its order "
+  f"{fmt(m('31','pypdfium2','order'))}. pdfminer.six, pdfplumber, pypdf in "
+  "layout mode and MarkItDown return each word with its letters reversed, "
+  f"so recall is {fmt(m('31','pdfminer.six','recall'))}. The email address "
+  "and phone number stay intact as strings for every reader, but in five "
+  "of them the address is glued to what comes before it: to the Arabic "
+  "city name in pypdf, PyMuPDF and PyMuPDF4LLM, and to an invisible "
+  "direction character in both poppler modes. A pattern that looks for an "
+  "email address after a space can miss it or capture the extra character. "
+  "Poppler also wraps lines and Latin runs in invisible direction "
+  "characters throughout the Arabic text.\n")
+
 w("**Contact details mostly survive.** The email address and phone number "
   "appeared intact in the extracted text for every text-layer resume and "
-  "every reader except three cases. pdfplumber on `23` and `24` joined "
+  "every reader except four cases. pdfplumber on `23` and `24` joined "
   "words and the phone number lost its spaces. MarkItDown on `22` and `23` "
   "split the phone number across table cells. pypdf in layout mode on `22` "
   "padded the gaps between words with runs of spaces, so an exact match "
   "fails, while a match that ignores extra whitespace passes. "
-  "Tesseract and PyMuPDF4LLM kept every contact detail, including on the "
-  "scanned page.\n")
-assert all(FILES[k]["parsers"]["Tesseract OCR"]["contact_strict"] == 1 for k in FILES)
+  "Tesseract misread the phone number on the Hindi file (`32`) and returned "
+  "`00` where the page has `010`, which is an ordinary OCR error and shows "
+  "why contact details deserve a check against the source. PyMuPDF4LLM kept "
+  "every contact detail, including on the scanned page.\n")
 assert all(FILES[k]["parsers"]["PyMuPDF4LLM"]["contact_strict"] == 1 for k in FILES)
 
 w("## Limits of this benchmark\n")
@@ -303,6 +405,9 @@ w("- The resumes are synthetic and short. Real files are messier.")
 w("- Most generated files write text in reading order, which favours "
   "file-order extractors. Resumes `12`, `25` and `26` show the opposite, "
   "but the real mix of producers is unknown.")
+w("- Thai has no spaces between words, so the word splitter returns whole "
+  "phrases as single tokens. One wrong character then loses the whole "
+  "phrase, and the Thai scores are stricter than the others for that reason.")
 w("- Recall and order are measured on words, not on sections or fields. "
   "They say nothing about whether a system would assign a job title to the "
   "right field.")
@@ -316,9 +421,12 @@ w("- These are open-source libraries on default settings. Commercial "
   "applicant tracking systems use their own parsers, and nothing here "
   "predicts what any of them does.")
 w("- One run, one machine, one resume structure, mostly English text, plus "
-  "one German, one Russian, one Greek and one Japanese file. Scripts that "
-  "need text shaping, such as Arabic, Devanagari and Thai, are not covered "
-  "because the generator cannot draw them. No statistical claims are made.")
+  "one file each in German, Russian, Greek, Japanese, Arabic, Hindi and Thai. "
+  "The Arabic, Hindi and Thai files come from a single producer "
+  "(LibreOffice, version above) and show how it stores shaped text, not how "
+  "every word processor does. Right-to-left layouts with columns or tables, "
+  "Eastern Arabic digits, and date conventions are not scored, although the "
+  "Thai file uses Buddhist Era years. No statistical claims are made.")
 w("- Two traps depend on the tool that produced the file (the LaTeX "
   "installation and the word processor). The PDFs are committed so results "
   "can be reproduced, but rebuilding them elsewhere may differ.\n")
@@ -327,10 +435,11 @@ w("## Reproduce\n")
 w("```text\npip install -r benchmark/requirements.txt\n"
   "python generator/build.py\npython benchmark/run_benchmark.py\n"
   "python benchmark/make_report.py\n```\n")
-w("Tesseract with the `deu`, `rus`, `ell` and `jpn` language packs, and "
-  "poppler (`pdftotext`) with `poppler-data`, must be installed separately. "
-  "LibreOffice and a LaTeX installation are needed only to rebuild resumes "
-  "`20` to `24`.\n")
+w("Tesseract with the `deu`, `rus`, `ell`, `jpn`, `ara`, `hin` and `tha` "
+  "language packs, and poppler (`pdftotext`) with `poppler-data`, must be "
+  "installed separately. LibreOffice and a LaTeX installation are needed "
+  "only to rebuild resumes `20` to `24` and `31` to `33`. The test of the "
+  "`/ActualText` explanation is `python benchmark/check_actualtext.py`.\n")
 
 (ROOT / "RESULTS.md").write_text("\n".join(out), encoding="utf-8")
 print("Wrote RESULTS.md")

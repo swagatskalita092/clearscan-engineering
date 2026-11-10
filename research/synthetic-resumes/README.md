@@ -1,9 +1,9 @@
 # Synthetic resumes
 
-*30 invented resumes, each built around one thing that makes text
+*33 invented resumes, each built around one thing that makes text
 extraction hard, with ground truth and a first benchmark.*
 
-![All 30 resumes as thumbnails](resumes/overview.png)
+![All 33 resumes as thumbnails](resumes/overview.png)
 
 ## Why this exists
 
@@ -73,9 +73,13 @@ The data is CC0 1.0 ([LICENSE-DATA](../LICENSE-DATA)). The code is MIT
 | `28-cyrillic-text` | A resume written entirely in Russian. | reportlab | 1 |
 | `29-greek-text` | A resume written entirely in Greek. | reportlab | 1 |
 | `30-japanese-cid-font` | Japanese text in an unembedded CID font, with no spaces between words. | reportlab | 1 |
+| `31-arabic-right-to-left` | Right-to-left Arabic in a word-processor export, with a Latin email address and a phone number inside the right-to-left line. | python-docx + LibreOffice | 1 |
+| `32-devanagari-hindi` | Devanagari text: vowel signs and conjuncts drawn from several code points, as a font and shaping engine produce them. | python-docx + LibreOffice | 1 |
+| `33-thai-no-spaces` | Thai text: no spaces between words, stacked vowel and tone marks, and years in the Buddhist Era. | python-docx + LibreOffice | 2 |
 
 Resumes `14` and `15` use a second invented person with accented characters.
-Resumes `27` to `30` are written in German, Russian, Greek and Japanese.
+Resumes `27` to `33` are written in German, Russian, Greek, Japanese, Arabic, Hindi and Thai.
+Resumes `31` to `33` need text shaping, so they are built through a word processor, and they show how one producer (LibreOffice) stores such text.
 Resume `09` is a picture of text with no text layer.
 
 ## Use it
@@ -88,7 +92,7 @@ truth = json.load(open("truth/01-baseline-single-column.json"))
 print(truth["reading_order"])   # lines in the order a person reads them
 ```
 
-Run the benchmark, which needs Tesseract and poppler installed:
+Run the benchmark, which needs Tesseract (with the `deu`, `rus`, `ell`, `jpn`, `ara`, `hin` and `tha` packs) and poppler installed:
 
 ```text
 pip install -r benchmark/requirements.txt
@@ -97,12 +101,17 @@ python benchmark/make_report.py
 ```
 
 Rebuild the PDFs. LibreOffice and a LaTeX installation are needed only for
-resumes `20` to `24`. The committed PDFs are the reference, because the
-word-processor and LaTeX files depend on the tools that built them.
+resumes `20` to `24` and `31` to `33`. The committed PDFs are the reference,
+because the word-processor and LaTeX files depend on the tools that built
+them.
 
 ```text
 python generator/build.py
+python generator/make_overview.py
 ```
+
+To add a file without touching the others, name it: `python generator/build.py
+--only 34`.
 
 ## Add a trap
 
@@ -123,9 +132,10 @@ path and returns text.
 - It does not measure any commercial applicant tracking system.
 - It scores words and their order, not whether a field such as a job title
   would be assigned correctly.
-- It is mostly English, plus one German, Russian, Greek and Japanese file.
-  Scripts that need text shaping, such as Arabic, Devanagari and Thai, and
-  right-to-left layouts are not covered yet.
+- It is mostly English, plus one file each in German, Russian, Greek,
+  Japanese, Arabic, Hindi and Thai. The shaped scripts come from a single
+  producer. Right-to-left layouts with columns or tables, Eastern Arabic
+  digits and date conventions are not scored yet.
 
 PyMuPDF is licensed AGPL-3.0, which differs from the rest of the toolchain,
 and PyMuPDF4LLM comes from the same vendor, so check its licence terms before

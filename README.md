@@ -19,6 +19,10 @@
 
 [Website](https://clearscan.fyi) &nbsp;|&nbsp; [Read online](https://swagatskalita092.github.io/clearscan-engineering/) &nbsp;|&nbsp; [Docs](docs/) &nbsp;|&nbsp; [Incidents](incidents/) &nbsp;|&nbsp; [Build your own](build-your-own/README.md) &nbsp;|&nbsp; [LinkedIn](https://www.linkedin.com/company/clearscan-ats/)
 
+<br>
+
+<img src="assets/walkthrough.gif" alt="Screen recording of the searchable site: the home page, a search for reading order columns with matching sections highlighted, and the benchmark results page opened in dark mode." width="800">
+
 </div>
 
 <br>
@@ -51,7 +55,7 @@ nothing to do with the constants.
 | [Occupational data](docs/10-occupational-data.md) | What O*NET and ESCO give a scanner, what they cannot, and the licence you take on |
 | [Resume conventions around the world](docs/11-resume-conventions-around-the-world.md) | How resumes and CVs differ by country, and what that does to a parser |
 | [ATS myths and the evidence](docs/12-ats-myths-and-evidence.md) | Common claims about ATS software, the public evidence for each, and how strong it is |
-| [Synthetic resumes and a parser benchmark](research/synthetic-resumes/README.md) | 30 invented resumes built around parsing traps, with ground truth and first results |
+| [Synthetic resumes and a parser benchmark](research/synthetic-resumes/README.md) | 33 invented resumes built around parsing traps, with ground truth and results for eleven readers |
 
 ## <img src="assets/icons/alert.svg" width="26" height="26" align="middle">&nbsp; Incidents
 
@@ -113,7 +117,7 @@ of these pages stay true.
 
 The writing in this repository is licensed under
 [CC BY 4.0](LICENSE): reuse and build on it freely, with credit. The license
-covers these documents and the banner, icons and diagrams in `assets/`.
+covers these documents and the banner, icons, diagrams and walkthrough recording in `assets/`.
 It does not cover the ClearScan software, name or logo, including the
 files in `assets/brand/`.
 

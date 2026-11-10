@@ -18,7 +18,8 @@ HERE = Path(__file__).resolve().parent
 ROOT = HERE.parent
 sys.path.insert(0, str(HERE))
 
-from content import P1, P2, P3, P4, P5, P6, contact_line  # noqa: E402
+from content import (P1, P2, P3, P4, P5, P6, P7, P8, P9,  # noqa: E402
+                     DEFAULT_HEADINGS, contact_line)
 import layouts as L  # noqa: E402
 
 OUT = ROOT / "resumes"
@@ -114,6 +115,19 @@ spec("30-japanese-cid-font", "Japanese with a CID font",
      persona=P6)
 
 
+SCRIPT_FILES = [
+    ("31-arabic-right-to-left", "Arabic, right to left",
+     "Right-to-left Arabic in a word-processor export, with a Latin email "
+     "address and a phone number inside the right-to-left line.", P7),
+    ("32-devanagari-hindi", "Hindi in Devanagari",
+     "Devanagari text: vowel signs and conjuncts drawn from several code "
+     "points, as a font and shaping engine produce them.", P8),
+    ("33-thai-no-spaces", "Thai",
+     "Thai text: no spaces between words, stacked vowel and tone marks, "
+     "and years in the Buddhist Era.", P9),
+]
+
+
 def build_reportlab(s):
     r, order = s["builder"]()
     path = OUT / f"{s['id']}.pdf"
@@ -158,21 +172,22 @@ def build_scanned():
 # ---- word processor and LaTeX variants
 def unit_truth(p, order):
     out = []
+    hd = p.get("headings", DEFAULT_HEADINGS)
     for u in order:
         if u == "header":
             out += [p["name"], p["title"], contact_line(p)]
         elif u == "summary":
-            out += ["Summary", p["summary"]]
+            out += [hd["summary"], p["summary"]]
         elif u == "experience":
-            out.append("Experience")
+            out.append(hd["experience"])
             for e in p["experience"]:
                 out += [e["role"], e["dates"], e["org"]] + e["bullets"]
         elif u == "education":
-            out.append("Education")
+            out.append(hd["education"])
             e = p["education"][0]
             out += [e["degree"], e["dates"], e["school"]]
         elif u == "skills":
-            out += ["Skills", ", ".join(p["skills"])]
+            out += [hd["skills"], p.get("skill_sep", ", ").join(p["skills"])]
     return out
 
 
@@ -262,6 +277,76 @@ def build_docx(table):
     return unit_truth(p, order), OUT / f"{name}.pdf"
 
 
+def _script_run(run, p, bold=False, size=None):
+    """Font, complex-script and right-to-left settings for one run."""
+    from docx.oxml import OxmlElement
+    from docx.oxml.ns import qn
+    rpr = run._r.get_or_add_rPr()
+    fonts = OxmlElement("w:rFonts")
+    for attr in ("w:ascii", "w:hAnsi", "w:cs", "w:eastAsia"):
+        fonts.set(qn(attr), p["font"])
+    rpr.insert(0, fonts)
+    if bold:
+        rpr.append(OxmlElement("w:b"))
+        rpr.append(OxmlElement("w:bCs"))
+    if size:
+        for tag in ("w:sz", "w:szCs"):
+            el = OxmlElement(tag)
+            el.set(qn("w:val"), str(size * 2))
+            rpr.append(el)
+    if p.get("rtl"):
+        rpr.append(OxmlElement("w:rtl"))
+    lang = OxmlElement("w:lang")
+    lang.set(qn("w:bidi"), p["lang"])
+    rpr.append(lang)
+
+
+def build_docx_script(p, name):
+    """One-column Word file in a script that needs text shaping."""
+    import docx
+    from docx.oxml import OxmlElement
+    d = docx.Document()
+    sec = d.sections[0]
+    sec.left_margin = sec.right_margin = docx.shared.Cm(1.8)
+    sec.top_margin = sec.bottom_margin = docx.shared.Cm(1.6)
+    hd = p.get("headings", DEFAULT_HEADINGS)
+
+    def add(text, bold=False, size=None, style=None):
+        para = d.add_paragraph(style=style) if style else d.add_paragraph()
+        if p.get("rtl"):
+            ppr = para._p.get_or_add_pPr()
+            ppr.insert(1 if ppr.find(docx.oxml.ns.qn("w:pStyle")) is not None else 0,
+                       OxmlElement("w:bidi"))
+        _script_run(para.add_run(text), p, bold, size)
+
+    add(p["name"], True, 22)
+    add(p["title"])
+    add(contact_line(p))
+    add(hd["summary"], True)
+    add(p["summary"])
+    add(hd["experience"], True)
+    for e in p["experience"]:
+        add(e["role"], True)
+        add(e["dates"])
+        add(e["org"])
+        for b in e["bullets"]:
+            add(b, style="List Bullet")
+    add(hd["education"], True)
+    e = p["education"][0]
+    add(e["degree"], True)
+    add(e["dates"])
+    add(e["school"])
+    add(hd["skills"], True)
+    add(p.get("skill_sep", ", ").join(p["skills"]))
+    tmpd = Path(tempfile.mkdtemp())
+    src = tmpd / f"{name}.docx"
+    d.save(src)
+    soffice(src, tmpd)
+    shutil.copy(tmpd / f"{name}.pdf", OUT / f"{name}.pdf")
+    order = ["header", "summary", "experience", "education", "skills"]
+    return unit_truth(p, order), OUT / f"{name}.pdf"
+
+
 LATEX = r"""\documentclass[10pt,a4paper]{article}
 \usepackage[margin=1.8cm]{geometry}
 \usepackage[T1]{fontenc}
@@ -324,6 +409,9 @@ def main():
     OUT.mkdir(exist_ok=True)
     TRUTH.mkdir(exist_ok=True)
     manifest = []
+    # --only 31 32 ...  builds just those files and keeps the rest untouched.
+    only = tuple(a for a in sys.argv[1:] if a != "--only")
+    wanted = (lambda i: i.startswith(only)) if only else (lambda i: True)
 
     def record(id_, title, trap, producer, truth, path, persona, links=()):
         em, ph = persona["email"], persona["phone"]
@@ -340,11 +428,23 @@ def main():
                              pages=data["pages"]))
 
     for s in SPECS:
+        if not wanted(s["id"]):
+            continue
         r, path = build_reportlab(s)
         links = [u for (_, _, u) in r.links]
         record(s["id"], s["title"], s["trap"], s["producer"], r.truth, path,
                s["persona"], links)
 
+    if not only:
+        main_rest(record)
+    for sid, title, trap, persona in SCRIPT_FILES:
+        if wanted(sid):
+            t, path = build_docx_script(persona, sid)
+            record(sid, title, trap, "python-docx + LibreOffice", t, path, persona)
+    finish(manifest, bool(only))
+
+
+def main_rest(record):
     t, path = build_scanned()
     record("09-scanned-image-only", "Scanned page, no text layer",
            "A page that is only a picture of text.", "reportlab (raster)", t,
@@ -373,11 +473,17 @@ def main():
            "a Unicode map.",
            "pdflatex", t, path, P1)
 
+
+def finish(manifest, merge):
+    path = ROOT / "manifest.json"
+    if merge and path.exists():
+        keep = {m["id"]: m for m in json.loads(path.read_text(encoding="utf-8"))}
+        keep.update({m["id"]: m for m in manifest})
+        manifest = list(keep.values())
     manifest.sort(key=lambda m: m["id"])
-    (ROOT / "manifest.json").write_text(
-        json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
-        encoding="utf-8")
-    print(f"Built {len(manifest)} resumes.")
+    path.write_text(json.dumps(manifest, indent=2, ensure_ascii=False) + "\n",
+                    encoding="utf-8")
+    print(f"Manifest lists {len(manifest)} resumes.")
 
 
 if __name__ == "__main__":
