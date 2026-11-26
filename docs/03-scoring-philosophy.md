@@ -86,6 +86,31 @@ regression tests so that every later change is deliberate.
 That is a defensible engineering position. It is not a validated one, and it
 should not be described as validated.
 
+## Would embeddings score better?
+
+TF-IDF is a sparse, exact-term method. Dense embeddings represent meaning
+rather than matched words, and the obvious next question is whether
+switching to them would make the score better. The honest answer right now
+is that it is not settled.
+
+A [September 2026 paper](https://arxiv.org/abs/2609.23307) by Yashwant, Jain, Dubey,
+Chatterjee and Thulsiram compared embedding models inside a staffing company's hybrid search
+pipeline and found a real gain from switching to a stronger embedding model,
+plus a smaller gain from fine-tuning it on past placements. But the paper
+never isolates embeddings against TF-IDF or BM25 alone: every dense model in
+it competes against another dense model, not against the sparse baseline
+people are actually asking about, and its headline relevance numbers come
+from a large language model acting as judge rather than from a labelled
+hiring outcome. That is evidence embeddings can be tuned to look better on
+an internal metric. It is not evidence they outscore a sparse method on
+anything a candidate or employer would recognise as correctness.
+
+Embeddings would also trade away two things this project protects on
+purpose: a score that is debuggable term by term, and a formula with no
+model file attached to it. Until there is a measured, apples-to-apples
+comparison against the sparse baseline, that is not a trade worth making
+here. If that evidence turns up, this page will say so.
+
 ## Honest limits
 
 - The score is only as good as the text the parser extracts.

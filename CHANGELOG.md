@@ -2,6 +2,20 @@
 
 All notable changes to this documentation repository are recorded here.
 
+## [2026-11-26]
+
+- Added a "Would embeddings score better?" section to the scoring philosophy
+  page: a September 2026 paper shows a real gain from switching embedding
+  models, but never isolates embeddings against TF-IDF or BM25 alone, so it
+  is not evidence that embeddings beat a sparse method on correctness.
+- Extended the regulation section of the ATS myths page beyond the EU AI
+  Act to the current US patchwork: NYC Local Law 144, Illinois HB 3773 and
+  its 2020 AI Video Interview Act, Texas TRAIGA, California's 2027 CCPA
+  automated-decision-making rules, and Colorado, whose status two law-firm
+  sources describe differently (stayed under the original Act, or repealed
+  and replaced by SB26-189) and which could not be resolved past May 2026
+  sources.
+
 ## [2026-11-10]
 
 - Added a short screen recording of the searchable site to the top of the README, with a description for readers who cannot see it.

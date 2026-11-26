@@ -145,9 +145,43 @@ to 2 December 2027. Law firms tracking the change agree on those dates. Rules
 and dates change, so check the current text before relying on this summary.
 This is general information, not legal advice.
 
-Whether a given product falls under the rule is a legal question. A tool that
-helps an applicant improve their own resume is a different thing from one that
-an employer uses to rank applicants.
+In the United States there is no single federal AI-hiring statute. Title VII,
+the ADA and the ADEA still apply to a decision an AI tool helps make. Below
+that, states and cities are building their own rules, and they do not agree
+with each other:
+
+- **New York City's Local Law 144** (in force since July 2023) requires an
+  independent bias audit within the year before an automated employment
+  decision tool is used, publication of the audit, and at least ten business
+  days' notice to a candidate.
+- **Illinois HB 3773** (effective 1 January 2026) prohibits AI use that has a
+  discriminatory effect across the employment lifecycle and requires
+  disclosure that AI is being used, but does not require a bias audit.
+  Illinois separately has a 2020 AI Video Interview Act requiring consent
+  before an AI video-interview system is used.
+- **Texas's TRAIGA** (effective 1 January 2026) prohibits AI deployed with
+  intent to discriminate, with liability limited to intentional
+  discrimination and a 60-day cure period.
+- **Colorado is unsettled.** One account describes the original Colorado AI
+  Act, which would have required impact assessments and attorney-general
+  notice, as stayed by a federal court in April 2026 pending a legal
+  challenge. Another describes it as already repealed and replaced by
+  SB26-189, which would regulate automated decisions, employment included,
+  from January 2027. The two accounts disagree, and neither could be
+  confirmed past May 2026, so treat Colorado as open until checked against
+  the state's own bill tracker and court docket.
+- **California's CCPA automated-decision-making rules**, covering
+  significant decisions including employment, take effect 1 January 2027.
+- Two federal lawsuits are relevant context rather than binding rules yet:
+  *Mobley v. Workday*, where ADEA and Title VII claims against a vendor were
+  allowed to proceed, and *Kistler v. Eightfold AI*, an early-stage case
+  arguing a screening vendor is a consumer reporting agency under the FCRA.
+
+Whether a given product falls under any of these rules is a legal question,
+not an engineering one, and a tool that helps an applicant improve their own
+resume is a different thing from one that an employer uses to rank
+applicants. This is general information, not legal advice, and reflects
+sources read in November 2026.
 
 ## What would settle these questions
 
@@ -201,3 +235,10 @@ describe how to contribute to any of these.
 - White & Case, [EU AI Omnibus enters into force, amending the AI
   Act](https://www.whitecase.com/insight-alert/eu-ai-omnibus-enters-force-amending-ai-act),
   2026.
+- Adams, Andrew, [Patchwork of AI Hiring Laws Creates Rising Compliance Risks
+  for
+  Employers](https://natlawreview.com/article/patchwork-ai-hiring-laws-create-rising-compliance-risks-employers),
+  DarrowEverett LLP via National Law Review, May 2026.
+- Wiley Rein LLP, [AI in Hiring: Evolving Legal Risks Under State and Federal
+  Law](https://www.jdsupra.com/legalnews/ai-in-hiring-evolving-legal-risks-under-9259049/),
+  JD Supra, May 2026.
