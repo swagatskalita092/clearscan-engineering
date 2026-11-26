@@ -4,10 +4,11 @@ All notable changes to this documentation repository are recorded here.
 
 ## [2026-11-26]
 
-- Added a "Would embeddings score better?" section to the scoring philosophy
-  page: a September 2026 paper shows a real gain from switching embedding
-  models, but never isolates embeddings against TF-IDF or BM25 alone, so it
-  is not evidence that embeddings beat a sparse method on correctness.
+- Added a seventh claim to the ATS myths page, "Dense embeddings score
+  resumes better than keyword matching like TF-IDF": a September 2026 paper
+  shows a real gain from switching embedding models, but never isolates
+  embeddings against TF-IDF or BM25 alone, so it is not evidence that
+  embeddings beat a sparse method on correctness.
 - Extended the regulation section of the ATS myths page beyond the EU AI
   Act to the current US patchwork: NYC Local Law 144, Illinois HB 3773 and
   its 2020 AI Video Interview Act, Texas TRAIGA, California's 2027 CCPA

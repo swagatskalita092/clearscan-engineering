@@ -6,7 +6,7 @@ exists for it, and how strong that evidence is.*
 ## How to read this page
 
 Advice about applicant tracking systems is mostly repeated, rarely sourced.
-This page takes six common claims, says what public evidence exists for each,
+This page takes seven common claims, says what public evidence exists for each,
 and grades it. It is a reading guide, not a verdict. Where the evidence is a
 vendor's own statement or a small survey, it says so.
 
@@ -136,6 +136,30 @@ the software. It matters to career changers, caregivers and students, who are
 often the people with gaps. It also differs strongly by country, because
 resume conventions about gaps are not the same everywhere.
 
+## Claim 7: "Dense embeddings score resumes better than keyword matching like TF-IDF"
+
+**What the evidence says.** Not demonstrated, by the one study that comes
+closest.
+
+A [September 2026 paper](https://arxiv.org/abs/2609.23307) from a staffing
+company and an IIT compared embedding models inside a hybrid candidate-search
+pipeline and found a real gain from switching to a stronger embedding model,
+plus a smaller gain from fine-tuning it on past placements. *Peer status
+unclear; posted to arXiv, not reviewed.* But the comparison never isolates
+embeddings against TF-IDF or BM25 alone. Every dense model in it competes
+against another dense model, not against a sparse baseline, and its headline
+relevance numbers come from a large language model acting as judge rather
+than a labelled hiring outcome.
+
+**Reading it.** This is evidence that embeddings can be tuned to look better
+on an internal, judge-scored metric. It is not evidence that they outscore a
+sparse method on anything a candidate or employer would recognise as
+correctness. See [Scoring philosophy](03-scoring-philosophy.md) for why
+this project keeps the deterministic, sparse approach until a real
+apples-to-apples comparison exists: it is debuggable term by term, with no
+model file attached to the formula, and that is a real cost to give up for an
+unmeasured gain.
+
 ## What regulation says about this class of software
 
 In the European Union, software used to filter or rank applicants is treated
@@ -242,3 +266,6 @@ describe how to contribute to any of these.
 - Wiley Rein LLP, [AI in Hiring: Evolving Legal Risks Under State and Federal
   Law](https://www.jdsupra.com/legalnews/ai-in-hiring-evolving-legal-risks-under-9259049/),
   JD Supra, May 2026.
+- Yashwant, Jain, Dubey, Chatterjee and Thulsiram, [Semantic Candidate-Job
+  Matching: A Comparative Evaluation of Dense Embedding Models in Hybrid
+  Retrieval](https://arxiv.org/abs/2609.23307), arXiv, September 2026.
