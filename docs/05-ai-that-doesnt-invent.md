@@ -41,6 +41,25 @@ for the user. They are never silently deleted.
 automatically and asks the reader to read it once before sending. It does not
 claim certainty it does not have.
 
+## In numbers
+
+Layers 1 and 2 live in the prompts themselves: the cover-letter prompt carries
+57 numbered rules plus a 13-point "HARD LIMITS" checklist the model has to
+verify before it replies, and the rewrite-suggestion prompt carries 36
+numbered rules. Layer 4 is `letter_checks.py`, seven deterministic detectors
+that run on every generated letter after the model answers:
+
+1. Inflated wording (claims like "independently" the resume doesn't support).
+2. Invented numbers or tools not present in the resume.
+3. Invented durations of experience.
+4. Invented motivation or feelings the resume never stated.
+5. Honest hedging about a resume gap, mistaken for a fabricated claim.
+6. Generic self-description with nothing behind it.
+7. Phrasing copied from the job posting rather than the resume.
+
+That is 113 checks in total guarding two features, and still not a guarantee:
+see "What is still unproven" below.
+
 ## Why layer 4 is not a model
 
 An obvious design is a second model that verifies the first. It was built and
